@@ -1,15 +1,4 @@
-name: Vulture Daily SEO Refresh
-
-on:
-  schedule:
-    # Runs at 03:00 UTC every day (The Golden Hour for SEO Crawlers)
-    - cron: '0 3 * * *'
-  workflow_dispatch: # Allows you to run it manually with one click
-
-jobs:
-  refresh-matrix:
-    runs-on: ubuntu-latest
-    steps:
+steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
@@ -24,18 +13,18 @@ jobs:
         run: |
           pip install requests beautifulsoup4
 
-      - name: Execute Vulture 10K Generator
+      - name: Execute Vulture 10K Node Generator
         run: |
           python vulture_10k_gen.py
 
-      - name: Update Sitemap and Manifest
+      # --- NEW STEP: THE ARTICLE ENGINE ---
+      - name: Execute Vulture Article Engine
         run: |
-          node vulture-injector.js
+          python vulture_article_gen.py
 
       - name: Commit and Push Changes
         run: |
           git config --global user.name "Vulture-Automator"
           git config --global user.email "vulture@brightlane.github.io"
-          git add nodes/ global_nodes.json sitemap.xml sitemap-*.xml
-          # Only commit if there are changes to avoid workflow errors
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🚀 VULTURE AUTO-REFRESH: $(date)" && git push)
+          git add nodes/ global_nodes.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🚀 VULTURE ARTICLE REFRESH: $(date)" && git push)

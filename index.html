@@ -4,200 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="eWVDN3vbam9nnaZQu7wAQKyfmJJdM7zjI80l4DGeUrQ" />
+    <title>StayFinder AI | 2026 Global Stay Matrix</title>
     
-    <title>StayFinder AI | Global Booking Matrix 2026</title>
-    <meta name="description" content="AI-Sourced Inventory: 2.5M+ Hotels, Penthouses, Motels, and Villas. Access secret 15% discounts for 2026 World Cup hubs.">
-
-    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/StayFinder/" />
-    <link rel="alternate" hreflang="es" href="https://brightlane.github.io/StayFinder/?lang=es" />
-    <link rel="alternate" hreflang="fr" href="https://brightlane.github.io/StayFinder/?lang=fr" />
-    <link rel="alternate" hreflang="de" href="https://brightlane.github.io/StayFinder/?lang=de" />
+    <meta name="description" content="Direct AI access to 2.5M+ Hotels, Motels, and Penthouses. Secure 15-30% World Cup 2026 discounts.">
 
     <style>
         :root { --gold: #ffd700; --dark: #020617; --glass: rgba(255,255,255,0.07); --accent: #4ade80; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: white; line-height: 1.6; overflow-x: hidden; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; overflow-x: hidden; }
 
-        /* THE VULTURE TICKER */
+        /* VULTURE TICKER */
         .ticker { background: #1e293b; color: var(--gold); padding: 10px 0; font-size: 0.75rem; font-weight: 800; border-bottom: 1px solid var(--gold); white-space: nowrap; overflow: hidden; }
         .ticker-inner { display: inline-block; animation: scroll 40s linear infinite; }
-        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
 
-        /* LANGUAGE BAR */
-        .lang-bar { background: rgba(0,0,0,0.5); padding: 10px; font-size: 0.8rem; display: flex; justify-content: center; gap: 20px; }
-        .lang-bar span { cursor: pointer; opacity: 0.5; transition: 0.3s; font-weight: 700; }
-        .lang-bar span:hover, .lang-bar span.active { opacity: 1; color: var(--gold); }
+        /* LIVE TOAST NOTIFICATION */
+        #live-toast { position: fixed; bottom: 20px; left: 20px; background: white; color: black; padding: 12px 20px; border-radius: 12px; font-size: 0.8rem; display: none; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border-left: 5px solid var(--gold); animation: slideIn 0.5s ease-out; }
 
-        /* SEARCH HUB */
-        .hero { padding: 80px 5% 60px; text-align: center; background: radial-gradient(circle at top, #1e293b 0%, var(--dark) 70%); }
-        .search-container { max-width: 900px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 40px; border: 1px solid rgba(255,215,0,0.2); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); position: relative; }
+        .hero { padding: 60px 5%; text-align: center; background: radial-gradient(circle at top, #1e293b 0%, var(--dark) 70%); min-height: 85vh; display: flex; flex-direction: column; justify-content: center; }
+        .search-container { max-width: 850px; margin: 0 auto; background: var(--glass); padding: 40px; border-radius: 40px; border: 1px solid rgba(255,215,0,0.2); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); position: relative; }
         
-        .promo-badge { background: linear-gradient(90deg, #ff4e50, #f9d423); color: black; padding: 6px 18px; border-radius: 50px; font-size: 0.75rem; font-weight: 900; display: inline-block; margin-bottom: 20px; animation: pulse 2s infinite; }
+        .promo-badge { background: linear-gradient(90deg, #ff4e50, #f9d423); color: black; padding: 6px 18px; border-radius: 50px; font-size: 0.75rem; font-weight: 900; margin-bottom: 20px; display: inline-block; animation: pulse 2s infinite; }
         
-        input { background: #000; border: 2px solid #334155; color: white; padding: 22px; border-radius: 18px; font-size: 1.2rem; width: 100%; text-align: center; transition: 0.3s; }
-        input:focus { border-color: var(--gold); outline: none; box-shadow: 0 0 20px rgba(255,215,0,0.15); }
+        input { background: #000; border: 2px solid #334155; color: white; padding: 22px; border-radius: 18px; font-size: 1.2rem; width: 100%; text-align: center; margin-bottom: 15px; }
+        
+        .main-btn { background: var(--gold); color: black; border: none; padding: 22px; border-radius: 18px; font-weight: 900; cursor: pointer; font-size: 1.3rem; width: 100%; transition: 0.3s; position: relative; overflow: hidden; }
+        
+        #loader { display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: var(--gold); color: black; align-items: center; justify-content: center; font-size: 1rem; font-weight: 900; }
 
-        .main-btn { background: var(--gold); color: black; border: none; padding: 22px; border-radius: 18px; font-weight: 900; cursor: pointer; font-size: 1.3rem; width: 100%; margin-top: 20px; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .main-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
-
-        /* MULTI-CATEGORY GRID */
-        .features { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .features { padding: 40px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
         .card { background: #0f172a; padding: 25px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); text-align: center; cursor: pointer; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); background: #1e293b; transform: translateY(-5px); }
-        .card span { font-size: 2rem; display: block; margin-bottom: 10px; }
-        .card h4 { color: var(--gold); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .card:hover { border-color: var(--gold); transform: translateY(-5px); }
 
-        /* LIVE NOTIFICATIONS */
-        #live-toast { position: fixed; bottom: 20px; left: 20px; background: white; color: black; padding: 15px 25px; border-radius: 15px; font-size: 0.85rem; display: none; border-left: 6px solid var(--gold); z-index: 9999; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
-        .pulse-dot { height: 10px; width: 10px; background-color: var(--accent); border-radius: 50%; display: inline-block; margin-right: 8px; box-shadow: 0 0 8px var(--accent); }
-
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
         @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+        @keyframes slideIn { from { transform: translateX(-100%); } to { transform: translateX(0); } }
     </style>
 </head>
 <body>
 
-    <div id="live-toast"><span id="toast-msg"></span></div>
-
-    <div class="lang-bar">
-        <span onclick="setLang('en')" id="btn-en" class="active">EN</span>
-        <span onclick="setLang('es')" id="btn-es">ES</span>
-        <span onclick="setLang('fr')" id="btn-fr">FR</span>
-        <span onclick="setLang('de')" id="btn-de">DE</span>
-    </div>
+    <div id="live-toast"></div>
 
     <div class="ticker">
-        <div class="ticker-inner">🌍 WORLD CUP 2026 HUB SYNC ACTIVE • HOTELS • MOTELS • PENTHOUSES • VILLAS • INNS • AIRPORT HOTELS • BEACH RESORTS • 15% EARLY ACCESS DEALS ACTIVE</div>
+        <div class="ticker-inner">🏨 2.5M+ PROPERTIES ACTIVE • 🏙️ PENTHOUSES • 🏟️ 2026 WORLD CUP HUB SYNC: 100% • SECRET 30% DISCOUNTS LIVE • MOBILE EXCLUSIVE RATES APPLIED 📱</div>
     </div>
 
     <header class="hero">
         <div class="search-container">
-            <div class="promo-badge" id="ui-promo">🎟️ SECRET 15% DISCOUNT ACTIVATED</div>
+            <div class="promo-badge" id="mobile-badge">🎟️ SECRET STAY DISCOUNT ACTIVATED</div>
             
-            <h1 id="ui-title" style="font-size: 2.5rem; font-weight: 900; margin-bottom: 10px;">Universal Stay Matrix</h1>
-            <p id="ui-sub" style="opacity: 0.7; margin-bottom: 25px;">AI-Sourced Inventory: Enter City, Zip Code, or Property</p>
+            <h1 style="font-size: 2.5rem; font-weight: 900; margin-bottom: 10px;">Universal Stay Matrix</h1>
             
-            <div style="margin-bottom: 15px; font-size: 0.85rem; font-weight: 700; color: var(--accent);">
-                <span class="pulse-dot"></span> <span id="ui-status">LIVE MATRIX CONNECTION: STABLE</span>
+            <div style="margin-bottom: 15px; color: var(--accent); font-size: 0.8rem; font-weight: 700;">
+                <span style="height: 8px; width: 8px; background: var(--accent); border-radius: 50%; display: inline-block; margin-right: 5px; box-shadow: 0 0 10px var(--accent);"></span> 
+                REAL-TIME INVENTORY CONNECTION: STABLE
             </div>
 
-            <input type="text" id="target" placeholder="Where are we going? (e.g. Marriott in 33139)">
+            <input type="text" id="target" placeholder="City, Zip, Stadium or Hotel Brand...">
             
-            <div style="margin-top: 20px; display: flex; justify-content: center; gap: 25px; font-size: 0.85rem;">
-                <label style="cursor:pointer;"><input type="checkbox" id="bundleToggle" checked> Bundle Flights</label>
-                <label style="cursor:pointer;"><input type="checkbox" id="luxuryToggle"> Force 5-Star</label>
+            <div style="margin-bottom: 20px; display: flex; justify-content: center; gap: 20px; font-size: 0.85rem;">
+                <label style="cursor:pointer;"><input type="checkbox" id="luxuryToggle"> 5-Star Only</label>
+                <label style="cursor:pointer;"><input type="checkbox" id="dealToggle" checked> Genius Deals</label>
             </div>
 
-            <button class="main-btn" onclick="execute('hero_main')" id="ui-btn">ACTIVATE TAKEOVER SEARCH</button>
+            <button class="main-btn" onclick="execute('hero')">
+                <span id="btn-text">SECURE RESERVATION ACCESS</span>
+                <div id="loader">SOURCING SECRET 30% DISCOUNTS...</div>
+            </button>
 
-            <div style="margin-top: 20px; font-size: 0.75rem; opacity: 0.6;">
-                Next AI Price Refresh: <span id="countdown">04:59</span>
+            <div style="margin-top: 15px; font-size: 0.7rem; opacity: 0.6;">
+                *Radical Transparency: AI scans for Mobile-Only & Genius pricing automatically.
             </div>
         </div>
     </header>
 
     <section class="features">
-        <div class="card" onclick="execute('quick_luxury', 'penthouses')"><span>🏙️</span><h4>Penthouses</h4></div>
-        <div class="card" onclick="execute('quick_beach', 'beach')"><span>🏖️</span><h4>Beach Resorts</h4></div>
-        <div class="card" onclick="execute('quick_airport', 'airport')"><span>✈️</span><h4>Airport Hotels</h4></div>
-        <div class="card" onclick="execute('quick_motel', 'motels')"><span>🚗</span><h4>Motels</h4></div>
-        <div class="card" onclick="execute('quick_villa', 'villas')"><span>💎</span><h4>Villas</h4></div>
-        <div class="card" onclick="execute('quick_inn', 'inns')"><span>🏡</span><h4>Inns & B&Bs</h4></div>
+        <div class="card" onclick="execute('quick', 'penthouse')"><span>🏙️</span><h4>Penthouses</h4></div>
+        <div class="card" onclick="execute('quick', 'resort')"><span>🏖️</span><h4>Resorts</h4></div>
+        <div class="card" onclick="execute('quick', 'motel')"><span>🚗</span><h4>Motels</h4></div>
+        <div class="card" onclick="execute('quick', 'villa')"><span>💎</span><h4>Villas</h4></div>
     </section>
 
-    <footer style="text-align:center; padding: 60px; border-top: 1px solid rgba(255,255,255,0.1); font-size: 0.75rem; opacity: 0.5;">
-        <p>StayFinder AI Matrix is an independent sourcing engine. Inventory provided via Booking.com & Skyscanner partnerships.</p>
-    </footer>
-
     <script>
-        const API = {
-            booking_aids: ["8132800", "1858279"],
-            endpoints: {
-                home: "https://www.booking.com/index.html",
-                motels: "https://www.booking.com/motels/index.html",
-                villas: "https://www.booking.com/villas/index.html",
-                apartments: "https://www.booking.com/apartments/index.html",
-                resorts: "https://www.booking.com/resorts/index.html",
-                inns: "https://www.booking.com/bed-and-breakfast/index.html",
-                flights: "http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885"
-            }
-        };
-
-        const i18n = {
-            en: { title: "Universal Stay Matrix", sub: "AI-Sourced: City, Zip, or Brand", btn: "ACTIVATE TAKEOVER SEARCH", placeholder: "Where are we going?", status: "LIVE MATRIX CONNECTION: STABLE", promo: "🎟️ SECRET 15% DISCOUNT ACTIVATED", code: "en-us" },
-            es: { title: "Matriz Global de Estancias", sub: "IA: Ciudad, Código Postal o Marca", btn: "ACTIVAR BÚSQUEDA", placeholder: "¿A dónde vamos?", status: "CONEXIÓN MATRIZ: ESTABLE", promo: "🎟️ DESCUENTO DEL 15% ACTIVADO", code: "es" },
-            fr: { title: "Matrice de Séjour Universelle", sub: "IA : Ville, Code Postal ou Marque", btn: "ACTIVER LA RECHERCHE", placeholder: "Où allons-nous ?", status: "CONNEXION MATRICE : STABLE", promo: "🎟️ REMISE DE 15% ACTIVÉE", code: "fr" },
-            de: { title: "Universelle Buchungsmatrix", sub: "KI: Stadt, PLZ oder Marke", btn: "SUCHE AKTIVIEREN", placeholder: "Wohin gehen wir?", status: "MATRIX-VERBINDUNG: STABIL", promo: "🎟️ 15% RABATT AKTIVIERT", code: "de" }
-        };
-
-        let currentLang = 'en';
-
-        function setLang(lang) {
-            currentLang = lang;
-            document.querySelectorAll('.lang-bar span').forEach(s => s.classList.remove('active'));
-            document.getElementById(`btn-${lang}`).classList.add('active');
-            document.getElementById('ui-title').innerText = i18n[lang].title;
-            document.getElementById('ui-sub').innerText = i18n[lang].sub;
-            document.getElementById('ui-btn').innerText = i18n[lang].btn;
-            document.getElementById('ui-status').innerText = i18n[lang].status;
-            document.getElementById('ui-promo').innerText = i18n[lang].promo;
-            document.getElementById('target').placeholder = i18n[lang].placeholder;
+        // 1. MOBILE DETECTION
+        if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+            document.getElementById('mobile-badge').innerText = "📱 MOBILE EXCLUSIVE: EXTRA 10% SAVINGS APPLIED";
         }
 
-        function execute(position, forcedCategory = null) {
-            let input = document.getElementById('target').value || "Global Deals";
-            const aid = API.booking_aids[Math.floor(Math.random() * API.booking_aids.length)];
-            const label = `vulture_2026_${currentLang}_${position}`;
-            
-            // 1. BRAND SWAP & COMPETITOR HIJACK
-            const competitors = ["expedia", "trivago", "hotels.com", "priceline", "kayak", "orbitz"];
-            let cleanQuery = input.toLowerCase();
-            competitors.forEach(brand => { cleanQuery = cleanQuery.replace(brand, "").trim(); });
-
-            // 2. INTELLIGENT NICHE ROUTING
-            let niche = forcedCategory || "home";
-            if (!forcedCategory) {
-                if (cleanQuery.includes("motel")) niche = "motels";
-                else if (cleanQuery.includes("villa")) niche = "villas";
-                else if (cleanQuery.includes("beach") || cleanQuery.includes("resort") || cleanQuery.includes("all inclusive")) niche = "resorts";
-                else if (cleanQuery.includes("inn") || cleanQuery.includes("b&b")) niche = "inns";
-            }
-
-            // 3. HIGH-TICKET & REAL DISCOUNT INJECTION
-            // nflt=oos%3D1 (Only show Deals) | nflt=price%3D1 (Best Price Sort)
-            let querySuffix = document.getElementById('luxuryToggle').checked || cleanQuery.includes("penthouse") ? " 5 star luxury" : "";
-            const baseUrl = API.endpoints[niche] || API.endpoints.home;
-            const finalUrl = `${baseUrl}?aid=${aid}&ss=${encodeURIComponent(cleanQuery + querySuffix)}&label=${label}&lang=${i18n[currentLang].code}&nflt=oos%3D1%3Bprice%3D1`;
-
-            // 4. BUNDLE MULTIPLIER
-            if (document.getElementById('bundleToggle').checked) {
-                window.open(`${API.endpoints.flights}&q=${encodeURIComponent(cleanQuery)}&label=${label}_side`, '_blank');
-            }
-
-            window.open(finalUrl, '_blank');
-        }
-
-        // TIMER LOGIC
-        let time = 300;
-        setInterval(() => {
-            let m = Math.floor(time/60), s = time%60;
-            document.getElementById('countdown').innerHTML = `0${m}:${s < 10 ? '0'+s : s}`;
-            time = time <= 0 ? 300 : time - 1;
-        }, 1000);
-
-        // SOCIAL PROOF
-        function triggerSocial() {
-            const cities = ["Miami", "Seattle", "Paris", "London", "Dallas"];
-            const actions = ["booked a Penthouse", "reserved a Motel", "found an All-Inclusive deal"];
+        // 2. SOCIAL PROOF ENGINE
+        const cities = ["Miami", "Dallas", "Seattle", "Mexico City", "Toronto", "NYC", "Los Angeles"];
+        const savings = ["15%", "22%", "18%", "30%", "12%"];
+        
+        function showToast() {
             const toast = document.getElementById('live-toast');
-            setInterval(() => {
-                document.getElementById('toast-msg').innerHTML = `<strong>User_${Math.floor(Math.random()*900+100)}</strong> in ${cities[Math.floor(Math.random()*5)]} ${actions[Math.floor(Math.random()*3)]}`;
-                toast.style.display = 'block';
-                setTimeout(() => { toast.style.display = 'none'; }, 5000);
-            }, 18000);
+            const city = cities[Math.floor(Math.random() * cities.length)];
+            const save = savings[Math.floor(Math.random() * savings.length)];
+            toast.innerHTML = `🔥 User_${Math.floor(Math.random()*900+100)} just saved <strong>${save}</strong> in ${city}`;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 4000);
         }
+        setInterval(showToast, 15000);
 
-        window.onload = triggerSocial;
+        // 3. SEARCH MEMORY
+        window.onload = () => {
+            const lastSearch = localStorage.getItem('vulture_last_search');
+            if(lastSearch) document.getElementById('target').value = lastSearch;
+        };
+
+        const API = {
+            aids: ["8132800", "1858279"],
+            url: "https://www.booking.com/searchresults.html"
+        };
+
+        function execute(pos, type = null) {
+            const input = document.getElementById('target').value;
+            if(!input) return alert("Please enter a destination to source deals.");
+            
+            localStorage.setItem('vulture_last_search', input);
+            document.getElementById('loader').style.display = 'flex';
+            
+            setTimeout(() => {
+                const aid = API.aids[Math.floor(Math.random() * API.aids.length)];
+                let query = input.toLowerCase();
+                
+                // BRAND HIJACK
+                const comps = ["expedia", "trivago", "hotels.com", "priceline", "kayak"];
+                comps.forEach(c => query = query.replace(c, "").trim());
+
+                let finalSearch = type ? `${type} in ${query}` : query;
+                if(document.getElementById('luxuryToggle').checked) finalSearch += " 5 star luxury";
+                
+                // oos=1: Only show properties with deals
+                // price=1: Sort by value/price
+                let params = `?aid=${aid}&ss=${encodeURIComponent(finalSearch)}&label=vulture_2026_${pos}`;
+                if(document.getElementById('dealToggle').checked) params += "&nflt=oos%3D1%3Bprice%3D1";
+
+                window.location.href = API.url + params;
+            }, 1200);
+        }
     </script>
 </body>
 </html>

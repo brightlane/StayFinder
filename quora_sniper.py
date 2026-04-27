@@ -20,3 +20,13 @@ def find_quora_targets(topic):
 # Example: Get targets for Dallas
 targets = find_quora_targets("Dallas")
 print(f"🎯 Target these high-intent questions: {targets}")
+# 1. Load your 10k keywords
+with open("keywords.txt", "r") as f:
+    cities = [line.strip() for line in f if line.strip()]
+
+# 2. Scout the top 10 cities for Quora targets
+for city in cities[:10]: 
+    print(f"--- Scouting Quora for {city} ---")
+    targets = find_quora_targets(city)
+    for t in targets:
+        print(f"URL: {t}")

@@ -1,124 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="robots" content="index, follow, max-image-preview:large">
+<div style="margin-top:25px;">
 
-<link rel="canonical" href="https://brightlane.github.io/SkyScanner/" />
+    <p style="font-size:1rem; font-weight:700; margin-bottom:10px;">
+        Where do you want to stay?
+    </p>
 
-<title>Book Hotels Worldwide | Cheap Hotel Deals & Reservations</title>
-<meta name="description" content="Search and book hotels worldwide. Compare prices, unlock hidden discounts, mobile-only deals, and reserve the best hotel rates instantly.">
+    <input id="target" 
+        placeholder="Enter city, hotel, or destination (e.g. New York, Paris)" 
+        style="
+        width:95%;
+        max-width:600px;
+        padding:20px;
+        font-size:1.2rem;
+        border-radius:12px;
+        border:2px solid var(--gold);
+        background:#000;
+        color:#fff;
+        text-align:center;
+    ">
 
-<!-- OG -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Book Hotels Worldwide & Save Instantly">
-<meta property="og:description" content="Find cheap hotels, unlock coupons, and book instantly.">
-<meta property="og:image" content="https://brightlane.github.io/SkyScanner/vulture-og.jpg">
-
-<!-- Schema -->
-<script type="application/ld+json">
-[
-{
- "@context":"https://schema.org",
- "@type":"SoftwareApplication",
- "name":"StayFinder Matrix",
- "applicationCategory":"TravelApplication",
- "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1000000"}
-},
-{
- "@context":"https://schema.org",
- "@type":"FAQPage",
- "mainEntity":[
-  {"@type":"Question","name":"How do I find cheap hotels?",
-   "acceptedAnswer":{"@type":"Answer","text":"Search your destination to compare hotel prices and unlock hidden discounts."}},
-  {"@type":"Question","name":"Are there hotel coupons?",
-   "acceptedAnswer":{"@type":"Answer","text":"Yes, discounts are automatically applied through our booking partners."}}
- ]
-}
-]
-</script>
-
-<style>
-:root { --gold:#ffd700; --dark:#010409; --neon:#00ff41; --slate:#8b949e; }
-body { margin:0; font-family:Arial; background:var(--dark); color:#fff; text-align:center; }
-.hero { padding:60px 20px; }
-input { width:90%; padding:18px; border-radius:10px; border:1px solid #333; background:#000; color:#fff; font-size:1.1rem; }
-button { padding:18px; width:90%; margin-top:10px; border:none; border-radius:10px; background:var(--gold); font-weight:bold; font-size:1.1rem; cursor:pointer; }
-.links a { margin:5px; display:inline-block; padding:8px 12px; background:#111; border-radius:6px; color:var(--gold); text-decoration:none; font-size:0.8rem;}
-.sticky { position:fixed; bottom:0; width:100%; background:#000; padding:10px; }
-</style>
-</head>
-
-<body>
-
-<div class="hero">
-
-<h1 id="dynamic-h1">Book Hotels Worldwide & Save Instantly</h1>
-
-<p style="color:var(--slate)">
-Search 2.5M+ hotels, compare prices, and unlock hidden discounts.
-</p>
-
-<input id="target" placeholder="Where do you want to stay?">
-
-<button onclick="go()">🔎 Search Hotels & Unlock Deals</button>
-
-<p style="color:var(--gold); font-size:0.8rem;">
-💰 Coupons & mobile discounts applied automatically
-</p>
-
-<p id="urgency" style="color:var(--neon); font-size:0.75rem;"></p>
-
-<!-- Popular Destinations -->
-<div class="links" style="margin-top:25px;">
-<a href="?city=new-york">New York Hotels</a>
-<a href="?city=los-angeles">Los Angeles Hotels</a>
-<a href="?city=miami">Miami Hotels</a>
-<a href="?city=paris">Paris Hotels</a>
-<a href="?city=london">London Hotels</a>
-<a href="?city=tokyo">Tokyo Hotels</a>
-</div>
+    <button onclick="go()" 
+        style="
+        margin-top:10px;
+        width:95%;
+        max-width:600px;
+        padding:20px;
+        font-size:1.2rem;
+        border-radius:12px;
+        background:var(--gold);
+        font-weight:900;
+    ">
+        🔎 Search Hotels & Unlock Deals
+    </button>
 
 </div>
-
-<!-- Sticky Mobile CTA -->
-<div class="sticky">
-<button onclick="go()">Search Hotels</button>
-</div>
-
-<script>
-const AID = "8132800";
-
-function go(){
- const dest = document.getElementById("target").value;
- if(!dest) return alert("Enter a destination");
-
- const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(dest)}&order=price`;
- window.location.href = url;
-}
-
-// urgency
-setInterval(()=>{
- let n = Math.floor(Math.random()*40)+10;
- document.getElementById("urgency").innerText = `🔥 ${n} people booked hotels in the last hour`;
-},3000);
-
-// dynamic SEO city
-const params = new URLSearchParams(window.location.search);
-const city = params.get("city");
-
-if(city){
- const c = city.replace(/-/g," ");
- document.getElementById("target").value = c;
- document.getElementById("dynamic-h1").innerText = `Book Hotels in ${c}`;
- document.title = `Book Hotels in ${c} | Cheap Deals`;
- document.querySelector("meta[name='description']").setAttribute(
-  "content",
-  `Find and book hotels in ${c}. Compare prices and unlock deals.`
- );
-}
-</script>
-
-</body>
-</html>

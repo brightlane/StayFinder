@@ -3,45 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Stay Not Found | StayFinder</title>
+    <title>Page Not Found | StayFinder AI Matrix</title>
+    <meta name="robots" content="noindex, follow">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; color: #333; }
-        .container { max-width: 600px; margin: auto; }
-        h1 { font-size: 50px; color: #ff5a5f; }
-        p { font-size: 18px; line-height: 1.6; }
-        .search-box { margin: 30px 0; }
-        .btn { 
-            background: #ff5a5f; color: white; padding: 12px 25px; 
-            text-decoration: none; border-radius: 5px; font-weight: bold; 
+        :root { --gold: #ffd700; --dark: #020617; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background: var(--dark); 
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+            text-align: center;
         }
-        .suggestions { margin-top: 40px; text-align: left; background: #f9f9f9; padding: 20px; border-radius: 10px; }
+        .error-code { font-size: 10rem; font-weight: 900; color: var(--gold); line-height: 1; opacity: 0.2; position: absolute; z-index: -1; }
+        .content { z-index: 1; padding: 20px; }
+        h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
+        .timer-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.1); margin: 20px auto; border-radius: 2px; overflow: hidden; }
+        .timer-fill { height: 100%; background: var(--gold); width: 100%; animation: shrink 5s linear forwards; }
+        @keyframes shrink { from { width: 100%; } to { width: 0%; } }
+        .btn { 
+            background: var(--gold); 
+            color: black; 
+            padding: 15px 30px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            font-weight: 900; 
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn:hover { transform: scale(1.05); }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>404</h1>
-        <h2>Oops! This destination is off the map.</h2>
-        <p>We couldn't find the exact page you're looking for, but the 2026 World Cup waits for no one! Let's get you back on track.</p>
-        
-        <div class="search-box">
-            <a href="https://brightlane.github.io/StayFinder/" class="btn">Return to StayFinder Home</a>
-        </div>
 
-        <div class="suggestions">
-            <h3>Popular Hubs:</h3>
-            <ul>
-                <li><a href="/StayFinder/archives/hotels/london.html">Hotels in London</a></li>
-                <li><a href="/StayFinder/archives/hotels/miami.html">Stays in Miami</a></li>
-                <li><a href="/StayFinder/archives/rentals/tokyo.html">Tokyo Vacation Rentals</a></li>
-            </ul>
-        </div>
+    <div class="error-code">404</div>
+
+    <div class="content">
+        <h1>Destination Unknown</h1>
+        <p>This specific route is unavailable, but the Matrix is still live.<br> 
+        Redirecting you to the <strong>Global Booking Hub</strong> in <span id="seconds">5</span> seconds...</p>
         
-        <p style="margin-top:50px; font-size: 14px; color: #888;">
-            Searching for a specific booking? 
-            <a href="http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885">Search Skyscanner Flights & Hotels</a>
-        </p>
+        <div class="timer-bar"><div class="timer-fill"></div></div>
+
+        <a href="https://brightlane.github.io/StayFinder/" class="btn">Return to Matrix Now</a>
     </div>
 
-    <script src="yield_optimizer.js"></script>
+    <script>
+        let timeLeft = 5;
+        const display = document.getElementById('seconds');
+        
+        const timer = setInterval(() => {
+            timeLeft--;
+            display.innerText = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                // Redirect back to main index with a tracking tag
+                window.location.href = "https://brightlane.github.io/StayFinder/?utm_source=404_recovery&utm_medium=internal";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>

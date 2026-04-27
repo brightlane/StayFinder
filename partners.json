@@ -1,0 +1,17 @@
+{
+  "primary": {
+    "name": "Booking.com",
+    "aid": "8132800",
+    "base_url": "https://www.booking.com/searchresults.html"
+  },
+  "secondary": {
+    "name": "Skyscanner",
+    "aid": "21885",
+    "base_url": "https://www.skyscanner.net/g/referrals/v1/flights"
+  },
+  "fallback": {
+    "name": "Expedia",
+    "aid": "Vulture_Exp_01",
+    "base_url": "https://expedia.com/affiliate"
+  }
+}

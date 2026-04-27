@@ -61,47 +61,47 @@
         * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', -apple-system, sans-serif; }
         body { background: var(--dark); color: white; line-height: 1.6; overflow-x: hidden; }
 
-        /* 🌍 LANGUAGE STRIP TICKER */
+        /* 🌍 GLOBAL TICKER */
         .lang-strip { background: #000; color: var(--gold); padding: 10px 0; font-size: 0.75rem; font-weight: 900; border-bottom: 1px solid var(--gold); overflow: hidden; white-space: nowrap; }
         .ticker-inner { display: inline-block; animation: scroll 60s linear infinite; }
 
-        /* ⚓ STICKY NAVIGATION */
+        /* ⚓ NAVIGATION */
         nav { position: sticky; top: 0; background: rgba(1, 4, 9, 0.95); backdrop-filter: blur(12px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(255, 215, 0, 0.1); }
         .nav-logo { font-weight: 900; color: var(--gold); letter-spacing: 2px; font-size: 1.2rem; }
         .nav-cta { background: var(--gold); color: #000; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 900; font-size: 0.85rem; transition: 0.3s; }
-        .nav-cta:hover { background: #fff; transform: scale(1.05); }
 
         /* 🏟️ HERO SECTION */
-        .hero { padding: 80px 5% 120px; text-align: center; background: radial-gradient(circle at top, #161b22 0%, var(--dark) 70%); }
-        .matrix-container { max-width: 850px; margin: 0 auto; background: rgba(255,255,255,0.02); padding: 60px 40px; border-radius: 40px; border: 1px solid rgba(255, 215, 0, 0.2); box-shadow: 0 0 50px rgba(0,0,0,0.5); position: relative; }
+        .hero { padding: 60px 5% 100px; text-align: center; background: radial-gradient(circle at top, #161b22 0%, var(--dark) 70%); }
+        .matrix-container { max-width: 850px; margin: 0 auto; background: rgba(255,255,255,0.02); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(255, 215, 0, 0.2); box-shadow: 0 0 50px rgba(0,0,0,0.5); position: relative; }
         
-        h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 900; color: var(--gold); line-height: 1.1; margin-bottom: 10px; letter-spacing: -2px; }
-        .status-line { color: var(--neon); font-size: 0.85rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 40px; }
+        h1 { font-size: clamp(2.2rem, 7vw, 4rem); font-weight: 900; color: var(--gold); line-height: 1.1; margin-bottom: 10px; letter-spacing: -2px; text-transform: uppercase; }
+        .status-line { color: var(--neon); font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 40px; }
 
-        /* 🗂️ INTERACTIVE TABS */
-        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 30px; flex-wrap: wrap; }
-        .tab-btn { background: rgba(255,255,255,0.05); border: 1px solid #30363d; color: #fff; padding: 12px 24px; border-radius: 50px; cursor: pointer; font-size: 0.9rem; font-weight: 600; transition: 0.3s; }
+        /* 🗂️ TABS */
+        .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
+        .tab-btn { background: rgba(255,255,255,0.05); border: 1px solid #30363d; color: #fff; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
         .tab-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(255, 215, 0, 0.05); }
 
-        /* ⌨️ INPUT & SNATCH BUTTON */
+        /* 🔍 SEARCH & AUTOCOMPLETE */
         .search-wrap { position: relative; max-width: 600px; margin: 0 auto; }
-        input { width: 100%; padding: 25px; background: #000; border: 2px solid #30363d; color: #fff; border-radius: 20px; font-size: 1.5rem; text-align: center; margin-bottom: 20px; outline: none; transition: 0.3s; }
-        input:focus { border-color: var(--gold); box-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
+        input { width: 100%; padding: 22px; background: #000; border: 2px solid #30363d; color: #fff; border-radius: 15px; font-size: 1.3rem; text-align: center; margin-bottom: 15px; outline: none; }
+        input:focus { border-color: var(--gold); box-shadow: 0 0 25px rgba(255, 215, 0, 0.1); }
         
-        .snatch-btn { width: 100%; padding: 25px; background: var(--gold); color: #000; font-weight: 900; font-size: 1.8rem; border: none; border-radius: 20px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
-        .snatch-btn:hover { background: #fff; transform: translateY(-3px); }
+        .suggestions { position: absolute; top: 75px; left: 0; right: 0; background: #0d1117; border: 1px solid #30363d; border-radius: 10px; z-index: 5000; display: none; text-align: left; }
+        .suggestion-item { padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #161b22; font-size: 0.9rem; }
+        .suggestion-item:hover { background: var(--gold); color: #000; }
 
-        /* 💰 CONVERSION OPTIMIZATION (PRICING) */
-        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; max-width: 1100px; margin: 60px auto 0; }
-        .card { background: rgba(255,255,255,0.03); padding: 40px 20px; border-radius: 24px; border: 1px solid #30363d; position: relative; }
-        .card.popular { border: 2px solid var(--gold); background: rgba(255, 215, 0, 0.02); transform: scale(1.05); }
-        .popular-tag { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 0.7rem; font-weight: 900; padding: 5px 15px; border-radius: 20px; }
+        .snatch-btn { width: 100%; padding: 22px; background: var(--gold); color: #000; font-weight: 900; font-size: 1.6rem; border: none; border-radius: 15px; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
 
-        /* 🦅 FOOTER CROSS-LINKING */
-        footer { background: #000; padding: 80px 5%; border-top: 1px solid #161b22; text-align: center; color: #8b949e; }
-        .footer-links { margin-bottom: 30px; }
-        .footer-links a { color: var(--gold); text-decoration: none; margin: 0 15px; font-size: 0.85rem; opacity: 0.7; }
-        .footer-links a:hover { opacity: 1; }
+        /* 💰 PRICING */
+        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 50px auto 0; }
+        .card { background: rgba(255,255,255,0.03); padding: 30px 20px; border-radius: 20px; border: 1px solid #30363d; position: relative; }
+        .card.popular { border: 2px solid var(--gold); transform: scale(1.03); }
+        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; }
+
+        footer { background: #000; padding: 60px 5%; border-top: 1px solid #161b22; text-align: center; color: #8b949e; }
+        .footer-links { margin-bottom: 25px; }
+        .footer-links a { color: var(--gold); text-decoration: none; margin: 0 10px; font-size: 0.8rem; opacity: 0.6; }
 
         @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
     </style>
@@ -110,7 +110,7 @@
 
     <div class="lang-strip">
         <div class="ticker-inner">
-            EN • ES • FR • DE • PT • JP • CN • KR • HI • IT • RU • TR • AR • VI • 🦅 VULTURE PROTOCOL: MILLION-NODE SYNC COMPLETE // FORCE MOBILE-ONLY RATES // BYPASS RETAIL MARKUPS // 🦅
+            🏆 WORLD CUP 2026 NODES ACTIVE: DALLAS • MEXICO CITY • NEW YORK • ATLANTA • LOS ANGELES • TORONTO • VANCOUVER • 🦅 VULTURE PROTOCOL: MILLION-NODE SYNC COMPLETE // 🦅
         </div>
     </div>
 
@@ -122,58 +122,64 @@
     <main class="hero">
         <div class="matrix-container" id="matrix">
             <h1 id="dynamic-h1">Stay Matrix</h1>
-            <div class="status-line">● GLOBAL INVENTORY SNIPER: ACTIVE</div>
+            <div class="status-line" id="node-id">● GLOBAL INVENTORY SNIPER: ACTIVE</div>
 
             <div class="tabs" role="tablist">
                 <button class="tab-btn active" onclick="setMode('Hotel')">Hotels</button>
                 <button class="tab-btn" onclick="setMode('Resort')">Resorts</button>
                 <button class="tab-btn" onclick="setMode('Villa')">Villas</button>
-                <button class="tab-btn" onclick="setMode('BnB')">BnBs</button>
                 <button class="tab-btn" onclick="setMode('World Cup')">Stadiums</button>
             </div>
 
             <div class="search-wrap">
-                <input type="text" id="target" placeholder="Destination, Stadium, or Zip..." aria-label="Target Destination">
+                <input type="text" id="target" placeholder="Destination or Stadium..." autocomplete="off">
+                <div id="suggestions" class="suggestions"></div>
                 <button class="snatch-btn" onclick="executeSnatch()">Initialize Snatch</button>
             </div>
 
-            <p style="margin-top: 30px; font-size: 0.8rem; color: #8b949e;">
-                ⭐ <strong>RADICAL TRANSPARENCY:</strong> Extracting <strong>Mobile-Only</strong> and <strong>Genius Tier 3</strong> rates. <br>
-                Commission extracted directly from hotel marketing budgets.
+            <p style="margin-top: 25px; font-size: 0.75rem; color: #8b949e;">
+                ⭐ <strong>RADICAL TRANSPARENCY:</strong> Extracting <strong>Mobile-Only</strong> and <strong>Genius Tier 3</strong> rates.
             </p>
         </div>
 
         <div class="pricing">
             <div class="card">
                 <h3>Standard</h3>
-                <p style="font-size: 0.8rem; margin: 15px 0;">Retail Rate Bypass</p>
-                <button onclick="executeSnatch('standard')" style="background:none; border:1px solid #444; color:white; padding:10px 20px; border-radius:5px; cursor:pointer;">Select</button>
+                <p style="font-size: 0.75rem; margin: 10px 0;">Retail Rate Bypass</p>
+                <button onclick="executeSnatch('standard')" style="background:none; border:1px solid #444; color:white; padding:8px 16px; border-radius:5px; cursor:pointer;">Select</button>
             </div>
             <div class="card popular">
                 <div class="popular-tag">MOST POWERFUL</div>
                 <h3 style="color:var(--gold)">VULTURE ELITE</h3>
-                <p style="font-size: 0.8rem; margin: 15px 0;">Genius T3 + Mobile Sniping</p>
-                <button onclick="executeSnatch('elite')" class="nav-cta" style="border:none; cursor:pointer; width:100%;">Select Elite</button>
+                <p style="font-size: 0.75rem; margin: 10px 0;">Genius T3 + Mobile Sniping</p>
+                <button onclick="executeSnatch('elite')" class="nav-cta" style="border:none; cursor:pointer; width:100%; display:block; text-align:center;">Select Elite</button>
             </div>
             <div class="card">
                 <h3>Enterprise</h3>
-                <p style="font-size: 0.8rem; margin: 15px 0;">Multi-Node Sync</p>
-                <button onclick="executeSnatch('ent')" style="background:none; border:1px solid #444; color:white; padding:10px 20px; border-radius:5px; cursor:pointer;">Select</button>
+                <p style="font-size: 0.75rem; margin: 10px 0;">Multi-Node Sync</p>
+                <button onclick="executeSnatch('ent')" style="background:none; border:1px solid #444; color:white; padding:8px 16px; border-radius:5px; cursor:pointer;">Select</button>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="footer-links" id="cross-links">
-            </div>
-        <p>&copy; 2026 VULTURE GLOBAL DOMINATION PROTOCOL. <br> All rates sniped via encrypted direct-to-inventory layers.</p>
+        <div class="footer-links" id="cross-links"></div>
+        <p>&copy; 2026 VULTURE GLOBAL DOMINATION PROTOCOL. <br> Direct-to-inventory encrypted layers.</p>
     </footer>
 
     <script>
         let currentMode = "Hotel";
-        const AID = "8132800"; // Affiliate ID
+        const AID = "8132800";
+        let globalNodes = {};
 
-        // 1. DYNAMIC CATEGORY TABS
+        // 1. DATA ENGINE (Load 100k Nodes)
+        async function loadNodes() {
+            try {
+                const r = await fetch('global_nodes.json');
+                globalNodes = await r.json();
+            } catch(e) { console.warn("Dictionary Offline"); }
+        }
+
         function setMode(mode) {
             currentMode = mode;
             document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -181,67 +187,69 @@
             });
         }
 
-        // 2. THE SNATCH EXECUTION (Vulture Core)
+        // 2. AUTOCOMPLETE LOGIC
+        const input = document.getElementById('target');
+        const suggs = document.getElementById('suggestions');
+
+        input.addEventListener('input', (e) => {
+            const val = e.target.value.toUpperCase();
+            suggs.innerHTML = '';
+            if (val.length < 2) { suggs.style.display = 'none'; return; }
+
+            const char = val[0];
+            const list = globalNodes[char] || [];
+            const matches = list.filter(l => l.toUpperCase().includes(val)).slice(0, 6);
+
+            if (matches.length > 0) {
+                suggs.style.display = 'block';
+                matches.forEach(m => {
+                    const d = document.createElement('div');
+                    d.className = 'suggestion-item';
+                    d.innerText = m;
+                    d.onclick = () => { input.value = m; suggs.style.display = 'none'; };
+                    suggs.appendChild(d);
+                });
+            } else { suggs.style.display = 'none'; }
+        });
+
+        // 3. THE SNATCH
         function executeSnatch(tier = 'main') {
-            const dest = document.getElementById('target').value;
-            if(!dest) return alert("System requires a Target Node to initialize.");
+            const dest = input.value;
+            if(!dest) return alert("Select a Target.");
 
-            // UTM PARAMETER INJECTION
-            const utm = `&utm_source=vulture_matrix&utm_medium=${tier}&utm_campaign=global_2026`;
-            
-            // VULTURE FILTER STACK
-            // oos=1 (Only Deals) | price=1 (Value Sort) | fc=2 (Force Mobile Rates)
+            const utm = `&utm_source=vulture_matrix&utm_medium=${tier}`;
             let filters = "oos%3D1%3Bprice%3D1";
-            if(/Android|iPhone|iPad/i.test(navigator.userAgent)) {
-                filters += "%3Bfc%3D2"; 
-            }
+            if(/Android|iPhone|iPad/i.test(navigator.userAgent)) filters += "%3Bfc%3D2";
 
-            const finalURL = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(currentMode + " in " + dest)}&label=vulture_matrix_${tier}${utm}&nflt=${filters}&order=price`;
+            const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(currentMode + " in " + dest)}&label=v_matrix_${tier}${utm}&nflt=${filters}&order=price`;
             
-            // Visual feedback before redirect
-            document.querySelector('.snatch-btn').innerText = "SNIPING RATES...";
-            document.body.style.opacity = "0.7";
-
-            setTimeout(() => {
-                window.location.href = finalURL;
-            }, 600);
+            document.querySelector('.snatch-btn').innerText = "SNIPING...";
+            setTimeout(() => { window.location.href = url; }, 500);
         }
 
-        // 3. SCARCITY ENGINE (Live Feed)
-        const hunters = ["Guest771", "User_Alpha", "Sniper_Node", "Vulture_X"];
-        const wins = ["sniped 35% off", "extracted Genius Rate", "unlocked Secret Villa", "forced Mobile-Only price"];
-        
-        function showLiveWin() {
-            const win = document.createElement('div');
-            win.style.cssText = "position:fixed; bottom:20px; left:20px; background:rgba(0,255,65,0.1); border:1px solid var(--neon); color:var(--neon); padding:12px 20px; border-radius:12px; font-size:0.75rem; z-index:9999; backdrop-filter:blur(8px); box-shadow:0 0 20px rgba(0,255,65,0.2);";
-            win.innerHTML = `🛰️ <strong>LIVE:</strong> ${hunters[Math.floor(Math.random()*hunters.length)]} ${wins[Math.floor(Math.random()*wins.length)]} in ${currentMode}s.`;
-            document.body.appendChild(win);
-            setTimeout(() => { win.style.opacity = '0'; setTimeout(()=>win.remove(), 500); }, 4000);
-        }
-        setInterval(showLiveWin, 9000);
-
-        // 4. pSEO DYNAMIC REBRANDING & CROSS-LINKS
+        // 4. DYNAMIC REBRANDING
         window.onload = () => {
+            loadNodes();
             const params = new URLSearchParams(window.location.search);
             const city = params.get('city');
             if(city) {
-                document.getElementById('target').value = city;
-                document.getElementById('dynamic-h1').innerText = `${city.toUpperCase()} MATRIX`;
-                document.title = `${city.title()} Stay Matrix | Vulture Global Sniper`;
+                const c = decodeURIComponent(city);
+                input.value = c;
+                document.getElementById('dynamic-h1').innerText = `${c.toUpperCase()} MATRIX`;
+                document.getElementById('node-id').innerText = `● NODE_${c.replace(/\s/g, '_').toUpperCase()}: ACTIVE`;
+                document.title = `${c} Stay Matrix | Vulture Global Sniper`;
             }
 
-            // Inject 5 Random City Links for SEO
-            const footer = document.getElementById('cross-links');
-            const nodes = ["London", "Paris", "Dallas", "Tokyo", "Miami", "Dubai", "New York", "Bali"];
-            nodes.sort(() => 0.5 - Math.random()).slice(0, 5).forEach(node => {
+            // Cross-links
+            const f = document.getElementById('cross-links');
+            ["London", "Paris", "Dallas", "Tokyo", "Miami"].forEach(n => {
                 const a = document.createElement('a');
-                a.href = `index.html?city=${node.toLowerCase()}`;
-                a.innerText = `${node} Matrix`;
-                footer.appendChild(a);
+                a.href = `index.html?city=${n.toLowerCase()}`;
+                a.innerText = `${n} Matrix`;
+                f.appendChild(a);
             });
         };
 
-        // 5. VULTURE SHIELD (Disable Right-Click for competitors)
         document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
 </body>

@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Not Found | StayFinder AI Matrix</title>
-    <meta name="robots" content="noindex, follow">
+    <title>Sourcing Stay Matrix... | StayFinder AI</title>
     <style>
         :root { --gold: #ffd700; --dark: #020617; }
         body { 
-            font-family: 'Inter', sans-serif; 
             background: var(--dark); 
             color: white; 
+            font-family: 'Inter', sans-serif; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -19,51 +18,43 @@
             margin: 0; 
             text-align: center;
         }
-        .error-code { font-size: 10rem; font-weight: 900; color: var(--gold); line-height: 1; opacity: 0.2; position: absolute; z-index: -1; }
-        .content { z-index: 1; padding: 20px; }
-        h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 30px; }
-        .timer-bar { width: 200px; height: 4px; background: rgba(255,255,255,0.1); margin: 20px auto; border-radius: 2px; overflow: hidden; }
-        .timer-fill { height: 100%; background: var(--gold); width: 100%; animation: shrink 5s linear forwards; }
-        @keyframes shrink { from { width: 100%; } to { width: 0%; } }
-        .btn { 
-            background: var(--gold); 
-            color: black; 
-            padding: 15px 30px; 
-            border-radius: 8px; 
-            text-decoration: none; 
-            font-weight: 900; 
-            text-transform: uppercase;
-            transition: 0.3s;
+        .matrix-loader {
+            border: 4px solid rgba(255, 215, 0, 0.1);
+            border-left: 4px solid var(--gold);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
         }
-        .btn:hover { transform: scale(1.05); }
+        h1 { font-size: 1.5rem; margin-bottom: 10px; }
+        p { opacity: 0.7; font-size: 0.9rem; }
+        .countdown { color: var(--gold); font-weight: 900; font-size: 1.2rem; }
+        
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
 
-    <div class="error-code">404</div>
-
-    <div class="content">
-        <h1>Destination Unknown</h1>
-        <p>This specific route is unavailable, but the Matrix is still live.<br> 
-        Redirecting you to the <strong>Global Booking Hub</strong> in <span id="seconds">5</span> seconds...</p>
-        
-        <div class="timer-bar"><div class="timer-fill"></div></div>
-
-        <a href="https://brightlane.github.io/StayFinder/" class="btn">Return to Matrix Now</a>
-    </div>
+    <div class="matrix-loader"></div>
+    <h1>Analyzing Stay Path...</h1>
+    <p>The requested destination is being synced with the 2026 Global Matrix.</p>
+    <p>Redirecting to Secure Search in <span id="timer" class="countdown">5</span> seconds...</p>
 
     <script>
-        let timeLeft = 5;
-        const display = document.getElementById('seconds');
+        let seconds = 5;
+        const timerDoc = document.getElementById('timer');
         
-        const timer = setInterval(() => {
-            timeLeft--;
-            display.innerText = timeLeft;
-            if (timeLeft <= 0) {
-                clearInterval(timer);
-                // Redirect back to main index with a tracking tag
-                window.location.href = "https://brightlane.github.io/StayFinder/?utm_source=404_recovery&utm_medium=internal";
+        // Vulture Logic: Capture the broken URL and attempt to extract a search term
+        const path = window.location.pathname.split('/').pop().replace(/-/g, ' ').replace('.html', '');
+        
+        const countdown = setInterval(() => {
+            seconds--;
+            timerDoc.innerText = seconds;
+            if(seconds <= 0) {
+                clearInterval(countdown);
+                // Redirect back to home with the "broken" path as a search query
+                window.location.href = `https://brightlane.github.io/StayFinder/?recovered=${encodeURIComponent(path)}`;
             }
         }, 1000);
     </script>

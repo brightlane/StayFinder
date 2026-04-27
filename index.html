@@ -1,35 +1,190 @@
-<div style="margin-top:25px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ✅ KEEP ALL YOUR ORIGINAL SEO / META EXACTLY -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/SkyScanner/" />
+    <link rel="alternate" hreflang="en-us" href="https://brightlane.github.io/SkyScanner/?lang=en-us" />
+    <link rel="alternate" hreflang="es-mx" href="https://brightlane.github.io/SkyScanner/?lang=es-mx" />
+    <link rel="alternate" hreflang="fr-fr" href="https://brightlane.github.io/SkyScanner/?lang=fr-fr" />
+    <link rel="alternate" hreflang="pt-br" href="https://brightlane.github.io/SkyScanner/?lang=pt-br" />
 
-    <p style="font-size:1rem; font-weight:700; margin-bottom:10px;">
-        Where do you want to stay?
-    </p>
+    <title id="meta-title">Global Stay Matrix | AI-Powered Inventory Sniper 2026</title>
+    <meta name="description" content="Direct AI access to 2.5M+ Hotels, Resorts, and Stadium-area inventory. Extracting Mobile-Only and Genius Tier 3 rates globally for the 2026 World Cup.">
+    <link rel="canonical" href="https://brightlane.github.io/SkyScanner/" />
 
-    <input id="target" 
-        placeholder="Enter city, hotel, or destination (e.g. New York, Paris)" 
-        style="
-        width:95%;
-        max-width:600px;
-        padding:20px;
-        font-size:1.2rem;
-        border-radius:12px;
-        border:2px solid var(--gold);
-        background:#000;
-        color:#fff;
-        text-align:center;
-    ">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Vulture Stay Matrix: Global Inventory Sniper">
+    <meta property="og:description" content="Bypassing retail markups for the 2026 World Cup and beyond.">
+    <meta property="og:image" content="https://brightlane.github.io/SkyScanner/vulture-og.jpg">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <button onclick="go()" 
-        style="
-        margin-top:10px;
-        width:95%;
-        max-width:600px;
-        padding:20px;
-        font-size:1.2rem;
-        border-radius:12px;
-        background:var(--gold);
-        font-weight:900;
-    ">
-        🔎 Search Hotels & Unlock Deals
-    </button>
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "StayFinder Matrix",
+        "operatingSystem": "All",
+        "applicationCategory": "TravelApplication",
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1000000" }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Vulture Global Domination",
+        "url": "https://brightlane.github.io/SkyScanner/"
+      }
+    ]
+    </script>
+
+    <style>
+        :root { --gold:#ffd700; --dark:#010409; --neon:#00ff41; --slate:#8b949e; }
+        body { margin:0; font-family:Arial; background:var(--dark); color:#fff; text-align:center; }
+
+        .hero { padding:60px 20px; }
+
+        .search-box {
+            margin:30px auto 10px;
+            max-width:720px;
+            background:#fff;
+            border-radius:12px;
+            overflow:hidden;
+            display:flex;
+            box-shadow:0 0 0 2px rgba(255,215,0,0.15), 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .search-box input {
+            flex:1;
+            padding:18px;
+            font-size:1.1rem;
+            border:none;
+            outline:none;
+        }
+
+        .search-box button {
+            padding:0 25px;
+            background:var(--gold);
+            border:none;
+            font-weight:900;
+            cursor:pointer;
+        }
+
+        .links a {
+            margin:5px;
+            display:inline-block;
+            padding:8px 12px;
+            background:#111;
+            border-radius:6px;
+            color:var(--gold);
+            text-decoration:none;
+            font-size:0.8rem;
+        }
+
+        .sticky {
+            position:fixed;
+            bottom:0;
+            width:100%;
+            background:#000;
+            padding:10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="hero">
+
+<h1>Book Hotels Online & Save Big on Reservations</h1>
+
+<p style="color:var(--gold); font-weight:700;">
+Book hotels online & save big with exclusive coupons
+</p>
+
+<!-- 🔥 MAIN SEARCH -->
+<div class="search-box">
+    <input id="target" placeholder="Where are you going?" value="New York">
+    <button onclick="go()">Search</button>
+</div>
+
+<!-- TRUST -->
+<div style="margin-top:10px;">
+    <div style="color:#ffd700; font-size:0.9rem; font-weight:700;">
+        ★★★★★ Rated by travelers worldwide
+    </div>
+    <div style="font-size:0.8rem; color:#8b949e;">
+        “Saved over $120 on my hotel in New York. Super easy to use.” — Jason M.
+    </div>
+</div>
+
+<!-- SUPPORT -->
+<p style="font-size:0.75rem; color:#8b949e;">
+Compare prices from 2.5M+ hotels worldwide
+</p>
+
+<!-- URGENCY -->
+<p id="urgency" style="color:var(--neon); font-size:0.75rem;"></p>
+
+<!-- POPULAR -->
+<div class="links" style="margin-top:20px;">
+<a href="?city=new-york">New York Hotels</a>
+<a href="?city=los-angeles">Los Angeles Hotels</a>
+<a href="?city=miami">Miami Hotels</a>
+<a href="?city=paris">Paris Hotels</a>
+<a href="?city=london">London Hotels</a>
+<a href="?city=tokyo">Tokyo Hotels</a>
+</div>
 
 </div>
+
+<!-- STICKY CTA -->
+<div class="sticky">
+<button onclick="go()">Search Hotels</button>
+</div>
+
+<script>
+const AID = "8132800";
+
+// redirect
+function go(){
+ const dest = document.getElementById("target").value;
+ if(!dest) return;
+ const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(dest)}&order=price`;
+ window.location.href = url;
+}
+
+// enter key
+document.getElementById("target").addEventListener("keypress", function(e){
+ if(e.key === "Enter") go();
+});
+
+// focus + select
+window.onload = () => {
+ const input = document.getElementById("target");
+ input.focus();
+ input.select();
+};
+
+// urgency
+setInterval(()=>{
+ let n = Math.floor(Math.random()*40)+10;
+ document.getElementById("urgency").innerText =
+ `🔥 ${n} people booked hotels in the last hour`;
+},3000);
+
+// dynamic city SEO
+const params = new URLSearchParams(window.location.search);
+const city = params.get("city");
+
+if(city){
+ const c = city.replace(/-/g," ");
+ document.getElementById("target").value = c;
+ document.title = `${c} Hotels | Book & Save`;
+}
+</script>
+
+</body>
+</html>

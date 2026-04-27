@@ -1,8 +1,21 @@
-steps:
+name: Vulture Daily SEO Refresh
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+  push:
+    branches: [ main ] # This triggers it every time you push code
+
+permissions:
+  contents: write  # 👈 THIS IS THE FIX: IT ALLOWS THE BOT TO SAVE ARTICLES
+
+jobs:
+  refresh-matrix:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v4
@@ -10,21 +23,17 @@ steps:
           python-version: '3.10'
 
       - name: Install Dependencies
-        run: |
-          pip install requests beautifulsoup4
+        run: pip install requests beautifulsoup4
 
-      - name: Execute Vulture 10K Node Generator
+      - name: Execute Generators
         run: |
           python vulture_10k_gen.py
-
-      # --- NEW STEP: THE ARTICLE ENGINE ---
-      - name: Execute Vulture Article Engine
-        run: |
           python vulture_article_gen.py
 
-      - name: Commit and Push Changes
+      - name: Commit and Push
         run: |
-          git config --global user.name "Vulture-Automator"
-          git config --global user.email "vulture@brightlane.github.io"
-          git add nodes/ global_nodes.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🚀 VULTURE ARTICLE REFRESH: $(date)" && git push)
+          git config --global user.name "Vulture-Bot"
+          git config --global user.email "bot@brightlane.io"
+          git add .
+          # This line prevents the "nothing to commit" failure
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🦅 VULTURE PROTOCOL: Articles Synced" && git push)

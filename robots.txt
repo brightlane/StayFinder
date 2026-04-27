@@ -1,0 +1,17 @@
+# Vulture Engine 2026 - StayFinder Global Configuration
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /temp/
+
+# Crawl-delay helps prevent GitHub Pages from throttling your site
+Crawl-delay: 5
+
+# Direct link to your dynamic sitemap
+Sitemap: https://brightlane.github.io/StayFinder/sitemap.xml
+
+# AI Crawler Directives (Optional - Allow AI to cite your pages)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /

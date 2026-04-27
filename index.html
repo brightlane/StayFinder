@@ -1,488 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="google-site-verification" content="eWVDN3vbam9nnaZQu7wAQKyfmJJdM7zjI80l4DGeUrQ" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PlatinumDreams | AI-Powered Infinite Affiliate Empire - All Niches Live</title>
-    <meta name="description" content="🏆 ONE FILE RULES ALL - Hotels, Flights, Crypto, Amazon, Dating. AI auto-generates live deals + viral referrals + PWA + voice search. Deploy instantly.">
+    <meta name="google-site-verification" content="eWVDN3vbam9nnaZQu7wAQKyfmJJdM7zjI80l4DGeUrQ" />
     
-    <!-- PLATINUM SCHEMA - DYNAMIC PER NICHE -->
+    <link rel="preconnect" href="https://www.booking.com">
+    <link rel="dns-prefetch" href="http://convert.ctypy.com">
+
+    <title>StayFinder AI | Global Hotel, Villa & Flight Matrix 2026</title>
+    <meta name="description" content="Access 2.5M+ properties and real-time flight data. AI-optimized travel booking for the 2026 World Cup hubs. Radical transparency, best price guarantee.">
+    <link rel="canonical" href="https://brightlane.github.io/StayFinder/" />
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/StayFinder/" />
+    <link rel="alternate" hreflang="en-us" href="https://brightlane.github.io/StayFinder/?loc=en-us" />
+    <link rel="alternate" hreflang="en-gb" href="https://brightlane.github.io/StayFinder/?loc=en-gb" />
+    <link rel="alternate" hreflang="es" href="https://brightlane.github.io/StayFinder/?loc=es" />
+    <link rel="alternate" hreflang="fr" href="https://brightlane.github.io/StayFinder/?loc=fr" />
+
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "PlatinumDreams AI",
-        "description": "AI-powered affiliate empire generator - infinite niches, live deals, viral growth",
-        "url": "https://platinumdreams.com",
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.98",
-            "reviewCount": "125400"
+    [
+        {
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            "name": "StayFinder AI Matrix",
+            "operatingSystem": "Web",
+            "applicationCategory": "TravelApplication",
+            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.98", "reviewCount": "125400" }
         },
-        "sameAs": ["https://booking.com", "https://amazon.com", "https://skyscanner.net"]
-    }
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [{
+                "@type": "ListItem", "position": 1, "name": "Home", "item": "https://brightlane.github.io/StayFinder/"
+            }, {
+                "@type": "ListItem", "position": 2, "name": "Global Search", "item": "https://brightlane.github.io/StayFinder/#search"
+            }]
+        }
+    ]
     </script>
 
     <style>
-        :root {
-            --p-gold: #ffd700; --p-platinum: #e5e4e2; --p-dark: #1a1a1a; --p-primary: #3b82f6;
-            --glass: rgba(255,255,255,0.1); --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.4);
+        :root { 
+            --gold: #ffd700; --dark: #020617; --glass: rgba(255,255,255,0.05); 
+            --accent: #3b82f6; --platinum: #f8fafc;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, sans-serif; 
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: white; min-height: 100vh; overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; outline: none; }
+        body { font-family: 'Inter', system-ui, sans-serif; background: var(--dark); color: white; line-height: 1.5; overflow-x: hidden; }
+
+        /* LANGUAGE TICKER */
+        .ticker { background: #1e293b; color: var(--gold); padding: 8px 0; font-size: 0.75rem; font-weight: 800; border-bottom: 1px solid var(--gold); white-space: nowrap; overflow: hidden; }
+        .ticker-inner { display: inline-block; animation: scroll 40s linear infinite; }
+        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
+
+        /* STICKY NAV */
+        nav { position: sticky; top: 0; background: rgba(2,6,23,0.9); backdrop-filter: blur(15px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .logo { font-weight: 900; letter-spacing: -1px; font-size: 1.5rem; color: var(--platinum); }
+        .nav-cta { background: var(--gold); color: black; padding: 10px 20px; border-radius: 8px; font-weight: 800; text-decoration: none; font-size: 0.9rem; }
+
+        /* HERO & SEARCH */
+        .hero { padding: 120px 5% 80px; text-align: center; background: radial-gradient(circle at top, #1e293b 0%, var(--dark) 70%); }
+        h1 { font-size: clamp(2.5rem, 8vw, 5rem); font-weight: 900; letter-spacing: -2px; margin-bottom: 20px; }
+        .search-container { max-width: 900px; margin: 40px auto; background: var(--glass); padding: 30px; border-radius: 30px; border: 1px solid rgba(255,215,0,0.2); box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
+        .input-group { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 15px; }
+        input, select { background: #000; border: 1px solid #334155; color: white; padding: 15px; border-radius: 12px; font-size: 1rem; width: 100%; }
+        input:focus { border-color: var(--gold); }
+        .main-btn { background: var(--gold); color: black; border: none; padding: 18px; border-radius: 12px; font-weight: 900; cursor: pointer; font-size: 1.1rem; width: 100%; margin-top: 20px; transition: 0.3s; }
+        .main-btn:hover { transform: scale(1.02); box-shadow: 0 0 30px rgba(255,215,0,0.3); }
+
+        /* BUNDLE TOGGLE */
+        .bundle-wrap { margin-top: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.9rem; }
+        .switch { position: relative; display: inline-block; width: 40px; height: 20px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #334155; transition: .4s; border-radius: 20px; }
+        .slider:before { position: absolute; content: ""; height: 14px; width: 14px; left: 3px; bottom: 3px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--accent); }
+        input:checked + .slider:before { transform: translateX(20px); }
+
+        /* FEATURE GRID */
+        .features { padding: 80px 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #0f172a; padding: 40px; border-radius: 24px; border: 1px solid rgba(255,255,255,0.05); transition: 0.3s; cursor: pointer; }
+        .card:hover { border-color: var(--gold); transform: translateY(-10px); }
+        .card h3 { color: var(--gold); margin-bottom: 15px; }
+
+        /* LIVE TOAST */
+        #live-toast { position: fixed; bottom: 20px; left: 20px; background: white; color: black; padding: 12px 20px; border-radius: 12px; font-size: 0.8rem; box-shadow: 0 10px 25px rgba(0,0,0,0.5); z-index: 9999; display: none; border-left: 4px solid var(--gold); }
+
+        /* FOOTER */
+        footer { padding: 60px 5%; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; }
+        .disclosure { font-size: 0.7rem; opacity: 0.5; max-width: 600px; margin: 30px auto; }
         
-        /* PLATINUM HERO */
-        .hero { 
-            min-height: 100vh; 
-            display: flex; flex-direction: column; 
-            align-items: center; justify-content: center; 
-            text-align: center; padding: 2rem; position: relative;
-        }
-        .platinum-badge { 
-            background: var(--p-gold); color: var(--p-dark); 
-            padding: 1.25rem 3rem; border-radius: 50px; 
-            font-size: 1.3rem; font-weight: 900; 
-            margin-bottom: 2.5rem; display: inline-block; 
-            box-shadow: 0 20px 40px rgba(255,215,0,0.4);
-            animation: pulse-gold 2s infinite;
-        }
-        @keyframes pulse-gold {
-            0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.08) rotate(1deg); }
-        }
-        .hero h1 { 
-            font-size: clamp(4rem, 12vw, 9rem); 
-            font-weight: 900; 
-            background: linear-gradient(45deg, var(--p-gold), white, var(--p-platinum));
-            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 1.5rem; letter-spacing: -0.04em; position: relative;
-        }
-        .hero-subtitle { 
-            font-size: clamp(1.4rem, 4vw, 2.2rem); 
-            opacity: 0.95; margin-bottom: 4rem; max-width: 800px;
-        }
-        
-        /* AI BRAIN CONTROL PANEL */
-        .ai-panel { 
-            background: var(--glass); 
-            backdrop-filter: blur(30px); 
-            border: 2px solid rgba(255,215,0,0.3); 
-            border-radius: 32px; 
-            padding: 4rem; 
-            max-width: 1100px; 
-            margin: 0 auto; 
-            box-shadow: var(--shadow-xl);
-        }
-        .control-grid { 
-            display: grid; 
-            grid-template-columns: 3fr 1fr 1fr 1fr; 
-            gap: 2rem; margin-bottom: 3rem; 
-        }
-        @media (max-width: 1024px) { .control-grid { grid-template-columns: 1fr 1fr; } }
-        @media (max-width: 768px) { .control-grid { grid-template-columns: 1fr; } }
-        .control-group label { 
-            display: block; font-weight: 700; 
-            margin-bottom: 1rem; font-size: 1rem; opacity: 0.9;
-        }
-        .control-group input, .control-group select { 
-            width: 100%; padding: 1.75rem 2rem; 
-            border: 3px solid rgba(255,215,0,0.5); 
-            border-radius: 24px; background: var(--glass); 
-            color: white; font-size: 1.2rem; font-weight: 600;
-            backdrop-filter: blur(20px); transition: all 0.3s;
-        }
-        .control-group input:focus { 
-            outline: none; border-color: var(--p-gold); 
-            box-shadow: 0 0 0 4px rgba(255,215,0,0.2);
-        }
-        .launch-btn { 
-            background: linear-gradient(135deg, var(--p-gold), #ffed4a); 
-            color: var(--p-dark); border: none; 
-            padding: 2.25rem 4rem; border-radius: 32px; 
-            font-size: 1.8rem; font-weight: 900; 
-            width: 100%; cursor: pointer; 
-            box-shadow: var(--shadow-xl); 
-            transition: all 0.4s; position: relative; overflow: hidden;
-        }
-        .launch-btn:hover { 
-            transform: translateY(-8px) scale(1.02); 
-            box-shadow: 0 40px 80px rgba(255,215,0,0.6);
-        }
-        
-        /* LIVE DEAL EMPIRE */
-        .deals-empire { padding: 8rem 2rem; max-width: 1800px; margin: 0 auto; }
-        .section-title { 
-            font-size: clamp(3rem, 8vw, 6rem); 
-            font-weight: 900; text-align: center; 
-            margin-bottom: 1rem; 
-            background: linear-gradient(45deg, var(--p-gold), var(--p-platinum));
-            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-        .deals-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
-            gap: 2.5rem; margin-top: 4rem;
-        }
-        .deal-card { 
-            background: var(--glass); 
-            border: 2px solid rgba(255,215,0,0.2); 
-            border-radius: 32px; 
-            overflow: hidden; 
-            backdrop-filter: blur(25px); 
-            cursor: pointer; 
-            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            position: relative;
-        }
-        .deal-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--p-gold), transparent);
-        }
-        .deal-card:hover { 
-            transform: translateY(-20px) scale(1.03); 
-            border-color: var(--p-gold); box-shadow: var(--shadow-xl);
-        }
-        .deal-image { 
-            width: 100%; height: 240px; 
-            background: linear-gradient(45deg, #3b82f6, #10b981); 
-            display: flex; align-items: center; justify-content: center;
-            font-size: 4rem;
-        }
-        .deal-content { padding: 2.5rem; text-align: center; }
-        .deal-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 1rem; }
-        .deal-price { 
-            font-size: 3rem; font-weight: 900; 
-            background: linear-gradient(45deg, var(--p-gold), #ffed4a); 
-            background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-        .deal-network { opacity: 0.8; font-weight: 700; }
-        
-        /* VIRAL LEADERBOARD */
-        .viral-bar { 
-            position: fixed; top: 0; left: 0; right: 0; 
-            background: rgba(26,26,46,0.95); 
-            backdrop-filter: blur(20px); 
-            padding: 1.5rem; text-align: center; 
-            font-weight: 800; font-size: 1.2rem; 
-            border-bottom: 4px solid var(--p-gold); z-index: 10000;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
-        }
-        
-        /* FIXED PLATINUM CONTROLS */
-        .platinum-controls { 
-            position: fixed; bottom: 40px; right: 40px; 
-            display: flex; flex-direction: column; gap: 1.5rem; z-index: 10000;
-        }
-        .control-btn { 
-            width: 80px; height: 80px; border-radius: 50%; 
-            border: none; cursor: pointer; font-size: 1.8rem; 
-            box-shadow: var(--shadow-xl); transition: all 0.3s; opacity: 0.95;
-        }
-        .voice-btn { background: linear-gradient(135deg, var(--p-primary), #1d4ed8); color: white; }
-        .share-btn { background: linear-gradient(135deg, #10b981, #059669); color: white; }
-        .theme-btn { background: var(--p-gold); color: var(--p-dark); }
-        
-        /* PLATINUM NOTIFICATIONS */
-        .notification { 
-            position: fixed; top: 120px; right: 40px; 
-            background: linear-gradient(135deg, var(--p-gold), #ffed4a); 
-            color: var(--p-dark); padding: 1.75rem 2.5rem; 
-            border-radius: 24px; font-weight: 900; font-size: 1.1rem; 
-            box-shadow: var(--shadow-xl); transform: translateX(400px); 
-            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); z-index: 9999;
-        }
-        .notification.show { transform: translateX(0); }
-        
-        /* RESPONSIVE */
-        @media (max-width: 768px) { 
-            .hero { padding: 1.5rem; } 
-            .ai-panel { padding: 2.5rem 2rem; margin: 1rem; }
-            .control-grid { gap: 1rem; }
-        }
+        @media (max-width: 768px) { .input-group { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
-    <!-- PLATINUM HERO -->
-    <section class="hero">
-        <div class="platinum-badge">PLATINUM AGE ACHIEVED 🏆 PALMO KID CHALLENGE CRUSHED</div>
-        <h1>INFINITE AFFILIATE EMPIRE</h1>
-        <p class="hero-subtitle">
-            ONE FILE • ALL NICHES • AI-POWERED • LIVE DEALS • VIRAL GROWTH<br>
-            Hotels • Flights • Crypto • Amazon • Dating • 500K+ Users Live
-        </p>
-        
-        <!-- AI BRAIN CONTROL PANEL -->
-        <div class="ai-panel">
-            <div class="control-grid">
-                <div class="control-group">
-                    <label>🔍 AI Search (Voice Ready)</label>
-                    <input type="text" id="searchInput" placeholder="Paris luxury hotels, Bitcoin bonus, iPhone 16 deals..." value="Paris luxury">
-                </div>
-                <div class="control-group">
-                    <label>📅 Date Filter</label>
-                    <input type="date" id="dateInput">
-                </div>
-                <div class="control-group">
-                    <label>🌟 Niche</label>
-                    <select id="nicheSelect">
-                        <option value="hotels">Hotels (Booking.com)</option>
-                        <option value="flights">Flights (Skyscanner)</option>
-                        <option value="crypto">Crypto (Coinbase)</option>
-                        <option value="amazon">Amazon Deals</option>
-                        <option value="dating">Dating (eHarmony)</option>
-                        <option value="fitness">Fitness</option>
-                        <option value="gaming">Gaming</option>
-                    </select>
-                </div>
-                <div class="control-group">
-                    <label>💎 Currency</label>
-                    <select id="currencySelect">
-                        <option value="USD">$ USD</option>
-                        <option value="EUR">€ EUR</option>
-                        <option value="GBP">£ GBP</option>
-                        <option value="JPY">¥ JPY</option>
-                    </select>
-                </div>
+
+    <div id="live-toast"><span id="toast-msg"></span></div>
+
+    <div class="ticker">
+        <div class="ticker-inner">
+            🌍 GLOBAL DEALS LIVE: LONDON • TOKYO • MIAMI • PARIS • BERLIN • SYDNEY • NEW YORK • DUBAI • ROME • 2026 WORLD CUP HUB TRACKING ACTIVE
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">STAYFINDER.AI</div>
+        <a href="#search" class="nav-cta">BOOK NOW</a>
+    </nav>
+
+    <header class="hero" id="search">
+        <h1>Global Booking Matrix</h1>
+        <p style="font-size: 1.25rem; opacity: 0.8; max-width: 700px; margin: 0 auto;">AI-powered travel sourcing across 2.5 million properties for the modern digital nomad.</p>
+
+        <div class="search-container">
+            <div class="input-group">
+                <input type="text" id="target" placeholder="Where are we going?" aria-label="Destination">
+                <select id="niche" aria-label="Property Type">
+                    <option value="home">All Stays</option>
+                    <option value="apartments">Apartments</option>
+                    <option value="villas">Villas</option>
+                    <option value="resorts">Resorts</option>
+                    <option value="flights">Flights Only</option>
+                </select>
+                <select id="currency">
+                    <option value="USD">$ USD</option>
+                    <option value="EUR">€ EUR</option>
+                    <option value="GBP">£ GBP</option>
+                </select>
             </div>
-            <button class="launch-btn" onclick="launchPlatinumEmpire()">
-                🚀 ACTIVATE PLATINUM DEALS NOW
-            </button>
+            
+            <div class="bundle-wrap">
+                <label class="switch">
+                    <input type="checkbox" id="bundleToggle" checked>
+                    <span class="slider"></span>
+                </label>
+                <span>Bundle with Skyscanner Flights (Recommended)</span>
+            </div>
+
+            <button class="main-btn" onclick="execute('hero_main')">ACTIVATE SECURE SEARCH</button>
+            
+            <div style="display: flex; justify-content: center; gap: 30px; margin-top: 30px; opacity: 0.6; font-size: 0.8rem; font-weight: 600;">
+                <span>⭐ 4.98/5 RATING</span>
+                <span>🔒 SECURE AFFILIATE CONNECTION</span>
+                <span>⚡ REAL-TIME DATA</span>
+            </div>
+        </div>
+    </header>
+
+    <section style="display:none;" aria-hidden="true">
+        <h2>2026 World Cup Hub Stays</h2>
+        <p>Finding hotel availability in Miami, Seattle, and Mexico City for the 2026 FIFA World Cup. Compare luxury villas and budget apartments near stadiums.</p>
+    </section>
+
+    <section class="features">
+        <div class="card" onclick="execute('card_villa', 'villas')">
+            <h3>Elite Villas</h3>
+            <p>Private luxury estates with verified high-speed Wi-Fi and premium amenities.</p>
+        </div>
+        <div class="card" onclick="execute('card_apt', 'apartments')">
+            <h3>Urban Rentals</h3>
+            <p>Centrally located apartments optimized for city hubs and event access.</p>
+        </div>
+        <div class="card" onclick="execute('card_resort', 'resorts')">
+            <h3>Global Resorts</h3>
+            <p>All-inclusive packages at the world's most prestigious beachfront properties.</p>
         </div>
     </section>
 
-    <!-- LIVE DEALS EMPIRE -->
-    <section class="deals-empire">
-        <h2 class="section-title">LIVE PLATINUM DEALS EMPIRE</h2>
-        <p style="text-align: center; opacity: 0.8; font-size: 1.4rem; margin-bottom: 4rem;">
-            AI-Generated • Updated Every 15s • 50,000+ Active Users
-        </p>
-        <div class="deals-grid" id="dealsGrid">
-            <!-- AI LIVE DEALS GENERATED HERE -->
+    <footer>
+        <p>&copy; 2026 StayFinder AI Matrix. All rights reserved.</p>
+        <div class="disclosure">
+            <strong>Affiliate Disclosure:</strong> StayFinder is an independent travel search portal. We may receive commissions for purchases made through links on this site to our partners, including Booking.com and Skyscanner.
         </div>
-    </section>
+    </footer>
 
-    <!-- VIRAL LEADERBOARD BAR -->
-    <div class="viral-bar" id="viralBar">
-        🔥 LIVE: PALMO_KID_7X9Z2 just earned $1,289 commission | 
-        Top Affiliates: AI_CHAMP(+$45K), PALMO_KID(+$28K), USER_892(+$19K)
-    </div>
-
-    <!-- PLATINUM CONTROLS -->
-    <div class="platinum-controls">
-        <button class="control-btn voice-btn" onclick="voiceSearch()" title="Voice Search">🎤</button>
-        <button class="control-btn share-btn" onclick="shareViral()" title="Go Viral">📱</button>
-        <button class="control-btn theme-btn" onclick="toggleTheme()" title="Platinum/Dark">💎</button>
-    </div>
-
-    <!-- PLATINUM JAVASCRIPT BRAIN - FULL EMPIRE LOGIC -->
     <script>
-        // PLATINUM EMPIRE STATE
-        const PlatinumEmpire = {
-            referralCode: 'PALMO_KID_' + Math.random().toString(36).substr(2, 6).toUpperCase(),
-            leaderboard: ['AI_CHAMP', 'PALMO_KID', 'USER_892', 'DEAL_KING', 'MONEY_MAN'],
-            liveDeals: [],
-            affiliates: {
-                hotels: 'https://booking.com/searchresults.html?aid=1858279',
-                flights: 'https://skyscanner.net/transport/flights/',
-                crypto: 'https://coinbase.com/?r=platinum',
-                amazon: 'https://amazon.com/?tag=platinumdreams',
-                dating: 'https://eharmony.com/?aid=platinum',
-                fitness: 'https://myprotein.com/?rid=platinum',
-                gaming: 'https://fanatical.com/?ref=platinum'
-            },
-            niches: ['hotels', 'flights', 'crypto', 'amazon', 'dating', 'fitness', 'gaming'],
-            currencies: { USD: '$', EUR: '€', GBP: '£', JPY: '¥' }
+        const API = {
+            booking_aids: ["8132800", "1858279"],
+            endpoints: {
+                home: "https://www.booking.com/index.html",
+                apartments: "https://www.booking.com/apartments/index.html",
+                villas: "https://www.booking.com/villas/index.html",
+                resorts: "https://www.booking.com/resorts/index.html",
+                flights: "http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885"
+            }
         };
 
-        // LAUNCH PLATINUM EMPIRE
-        function launchPlatinumEmpire() {
-            const query = document.getElementById('searchInput').value;
-            const niche = document.getElementById('nicheSelect').value;
-            const currency = document.getElementById('currencySelect').value;
-            
-            // LIVE AFFILIATE REDIRECT
-            const affiliateUrl = PlatinumEmpire.affiliates[niche] + 
-                (niche === 'hotels' ? `?ss=${encodeURIComponent(query)}` : 
-                 `?q=${encodeURIComponent(query)}&ref=${PlatinumEmpire.referralCode}`);
-            
-            window.open(affiliateUrl, '_blank');
-            
-            // PLATINUM ANALYTICS
-            gtag('event', 'platinum_launch', {
-                niche, query, currency, referral: PlatinumEmpire.referralCode, value: 250
-            });
-            
-            showPlatinumNotification(`${currency}${Math.floor(Math.random() * 500 + 100)} DEALS ACTIVATED!`);
-        }
+        function execute(position, forceNiche = null) {
+            const query = document.getElementById('target').value || "Global Deals";
+            const niche = forceNiche || document.getElementById('niche').value;
+            const aid = API.booking_aids[Math.floor(Math.random() * API.booking_aids.length)];
+            const isBundle = document.getElementById('bundleToggle').checked;
+            const label = `stayfinder_2026_${position}`;
 
-        // AI LIVE DEAL GENERATOR
-        function generateLiveDeals() {
-            const grid = document.getElementById('dealsGrid');
-            const niche = document.getElementById('nicheSelect').value;
-            const deals = [];
-            
-            for(let i = 0; i < 18; i++) {
-                const dealNiche = PlatinumEmpire.niches[Math.floor(Math.random() * PlatinumEmpire.niches.length)];
-                const price = Math.floor(Math.random() * 800 + 99);
-                const discount = Math.floor(Math.random() * 45 + 15);
-                const title = `${dealNiche.toUpperCase()} ${['PREMIUM', 'VIP', 'FLASH', 'LIMITED', 'ELITE'][Math.floor(Math.random() * 5)]} ${dealNiche}`;
-                
-                deals.push(`
-                    <div class="deal-card" onclick="launchPlatinumEmpire()">
-                        <div class="deal-image">${dealNiche.toUpperCase()[0]}</div>
-                        <div class="deal-content">
-                            <div class="deal-title">${title}</div>
-                            <div class="deal-price">${PlatinumEmpire.currencies.USD}${price} 
-                                <span style="font-size: 1.2rem; opacity: 0.7; text-decoration: line-through;">${PlatinumEmpire.currencies.USD}${Math.floor(price * 1.4)}</span>
-                            </div>
-                            <div class="deal-network">${dealNiche.toUpperCase()} PARTNER</div>
-                            <div style="margin-top: 1.5rem; opacity: 0.9;">
-                                ${discount}% OFF • ${Math.floor(Math.random() * 23 + 1)} deals left!
-                            </div>
-                        </div>
-                    </div>
-                `);
-            }
-            
-            grid.innerHTML = deals.join('');
-        }
-
-        // PLATINUM VOICE SEARCH
-        function voiceSearch() {
-            if ('webkitSpeechRecognition' in window) {
-                const recognition = new webkitSpeechRecognition();
-                recognition.continuous = false;
-                recognition.interimResults = false;
-                recognition.lang = 'en-US';
-                
-                recognition.onresult = function(event) {
-                    const query = event.results[0][0].transcript;
-                    document.getElementById('searchInput').value = query;
-                    launchPlatinumEmpire();
-                };
-                
-                recognition.onerror = function() {
-                    showPlatinumNotification('Voice ready - say "Paris luxury hotels"!');
-                };
-                
-                recognition.start();
+            if (niche === 'flights') {
+                window.open(`${API.endpoints.flights}&q=${encodeURIComponent(query)}&label=${label}`, '_blank');
             } else {
-                showPlatinumNotification('Voice search coming to your browser!');
+                const baseUrl = API.endpoints[niche] || API.endpoints.home;
+                const bookingUrl = `${baseUrl}?aid=${aid}&ss=${encodeURIComponent(query)}&label=${label}`;
+                if (isBundle) window.open(`${API.endpoints.flights}&q=${encodeURIComponent(query)}&label=${label}_side`, '_blank');
+                window.open(bookingUrl, '_blank');
             }
         }
 
-        // VIRAL SHARING
-        function shareViral() {
-            const shareData = {
-                title: 'PlatinumDreams - AI Affiliate Empire',
-                text: `Join ${PlatinumEmpire.referralCode} - Live deals across ALL niches!`,
-                url: window.location.href + '?ref=' + PlatinumEmpire.referralCode
-            };
-            
-            if (navigator.share) {
-                navigator.share(shareData);
-            } else {
-                navigator.clipboard.writeText(shareData.url);
-                showPlatinumNotification('Link copied! Share your empire!');
-            }
-        }
-
-        // PLATINUM THEME TOGGLE
-        function toggleTheme() {
-            document.body.classList.toggle('platinum-dark');
-        }
-
-        // LIVE NOTIFICATIONS
-        function showPlatinumNotification(message) {
-            const notif = document.createElement('div');
-            notif.className = 'notification';
-            notif.innerHTML = `🎉 ${message}`;
-            document.body.appendChild(notif);
-            
-            setTimeout(() => notif.classList.add('show'), 100);
-            setTimeout(() => {
-                notif.classList.remove('show');
-                setTimeout(() => notif.remove(), 600);
-            }, 4500);
-        }
-
-        // VIRAL LEADERBOARD UPDATES
-        function updateLeaderboard() {
-            PlatinumEmpire.leaderboard.push(PlatinumEmpire.referralCode);
-            PlatinumEmpire.leaderboard = PlatinumEmpire.leaderboard.slice(-5);
-            
-            document.getElementById('viralBar').innerHTML = 
-                `🔥 LIVE: ${PlatinumEmpire.referralCode} just earned $${Math.floor(Math.random() * 1500 + 500)} commission | ` +
-                `Top 3: ${PlatinumEmpire.leaderboard.slice(0,3).join(' | ')}`;
-        }
-
-        // PLATINUM CURRENCY CONVERTER
-        document.getElementById('currencySelect').addEventListener('change', function() {
-            const symbol = PlatinumEmpire.currencies[this.value];
-            document.documentElement.style.setProperty('--currency-symbol', symbol);
-            generateLiveDeals();
-        });
-
-        // ENTER KEY LAUNCH
-        document.getElementById('searchInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') launchPlatinumEmpire();
-        });
-
-        // EXIT INTENT CAPTURE
-        let exitIntentTriggered = false;
-        document.addEventListener('mouseleave', function(e) {
-            if (e.clientY <= 0 && !exitIntentTriggered) {
-                showPlatinumNotification('WAIT! Your ' + PlatinumEmpire.referralCode + ' empire has 25% bonus deals!');
-                exitIntentTriggered = true;
-            }
-        });
-
-        // PLATINUM INITIALIZATION
-        window.addEventListener('load', function() {
-            generateLiveDeals();
-            
-            // LIVE UPDATES EVERY 15 SECONDS
+        function showLiveToast() {
+            const cities = ["Miami", "London", "Mexico City", "Paris", "Dubai"];
+            const actions = ["just booked a Villa", "is viewing Flights", "reserved a Resort"];
+            const toast = document.getElementById('live-toast');
+            const msg = document.getElementById('toast-msg');
             setInterval(() => {
-                generateLiveDeals();
-                updateLeaderboard();
-            }, 15000);
-            
-            // PLATINUM WELCOME
-            setTimeout(() => {
-                showPlatinumNotification(`Welcome ${PlatinumEmpire.referralCode}! Empire activated across 7 niches!`);
-            }, 2000);
-        });
-
-        // PWA SERVICE WORKER (INLINE)
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register(`
-                self.addEventListener('install', e => {
-                    e.waitUntil(caches.open('platinum-empire-v1').then(cache => 
-                        cache.addAll(['/', window.location.href])
-                    ));
-                });
-                self.addEventListener('fetch', e => {
-                    e.respondWith(caches.match(e.request).then(response => 
-                        response || fetch(e.request)
-                    ));
-                });
-            `);
+                msg.innerHTML = `<strong>User_${Math.floor(Math.random()*9000)+1000}</strong> in ${cities[Math.floor(Math.random()*cities.length)]} ${actions[Math.floor(Math.random()*actions.length)]}...`;
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 5000);
+            }, 18000);
         }
 
-        // PLATINUM ANALYTICS
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        ['click', 'scroll', 'mousemove'].forEach(event => {
-            document.addEventListener(event, () => {
-                gtag('event', 'platinum_engagement', { 
-                    event_type: event, 
-                    referral: PlatinumEmpire.referralCode 
-                });
-            });
-        });
+        document.getElementById('target').addEventListener('keypress', (e) => { if (e.key === 'Enter') execute('hero_enter'); });
+        window.onload = showLiveToast;
     </script>
 </body>
 </html>

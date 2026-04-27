@@ -1,19 +1,30 @@
 {
+  "primary_focus": "booking_com",
+  "secondary_focus": "skyscanner",
   "booking_com": {
-    "primary_aid": "8132800",
-    "secondary_aid": "1858279",
+    "aids": [
+      "8132800",
+      "1858279"
+    ],
+    "rotation_strategy": "random",
     "endpoints": {
       "home": "https://www.booking.com/index.html",
       "apartments": "https://www.booking.com/apartments/index.html",
       "resorts": "https://www.booking.com/resorts/index.html",
       "villas": "https://www.booking.com/villas/index.html",
-      "bed_and_breakfast": "https://www.booking.com/bed-and-breakfast/index.html",
+      "bnb": "https://www.booking.com/bed-and-breakfast/index.html",
       "guesthouses": "https://www.booking.com/guest-house/index.html"
     }
   },
-  "other_partners": {
-    "skyscanner_id": "21885",
-    "skyscanner_url": "http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885",
-    "youware_id": "007949000012007981"
+  "skyscanner": {
+    "aff_id": "21885",
+    "offer_id": "29465",
+    "base_url": "http://convert.ctypy.com/aff_c",
+    "full_link": "http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885"
+  },
+  "metadata": {
+    "project": "StayFinder",
+    "version": "2.0.0",
+    "last_updated": "2026-04-27"
   }
 }

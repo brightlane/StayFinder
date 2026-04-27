@@ -5,10 +5,10 @@ on:
     - cron: '0 3 * * *'
   workflow_dispatch:
   push:
-    branches: [ main ] # This triggers it every time you push code
+    branches: [ main ]
 
 permissions:
-  contents: write  # 👈 THIS IS THE FIX: IT ALLOWS THE BOT TO SAVE ARTICLES
+  contents: write
 
 jobs:
   refresh-matrix:
@@ -23,17 +23,17 @@ jobs:
           python-version: '3.10'
 
       - name: Install Dependencies
-        run: pip install requests beautifulsoup4
+        run: |
+          pip install requests beautifulsoup4
 
-      - name: Execute Generators
+      - name: Execute Vulture Generators
         run: |
           python vulture_10k_gen.py
           python vulture_article_gen.py
 
-      - name: Commit and Push
+      - name: Commit and Push Changes
         run: |
           git config --global user.name "Vulture-Bot"
           git config --global user.email "bot@brightlane.io"
           git add .
-          # This line prevents the "nothing to commit" failure
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🦅 VULTURE PROTOCOL: Articles Synced" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🦅 VULTURE PROTOCOL: Articles & Nodes Synced" && git push)

@@ -1,290 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    
-    <link rel="alternate" hreflang="x-default" href="https://brightlane.github.io/SkyScanner/" />
-    <link rel="alternate" hreflang="en-us" href="https://brightlane.github.io/SkyScanner/?lang=en-us" />
-    <link rel="alternate" hreflang="es-mx" href="https://brightlane.github.io/SkyScanner/?lang=es-mx" />
-    <link rel="alternate" hreflang="fr-fr" href="https://brightlane.github.io/SkyScanner/?lang=fr-fr" />
-    <link rel="alternate" hreflang="pt-br" href="https://brightlane.github.io/SkyScanner/?lang=pt-br" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow, max-image-preview:large">
 
-    <title id="meta-title">Global Stay Matrix | AI-Powered Inventory Sniper 2026</title>
-    <meta name="description" content="Direct AI access to 2.5M+ Hotels, Resorts, and Stadium-area inventory. Extracting Mobile-Only and Genius Tier 3 rates globally for the 2026 World Cup.">
-    <link rel="canonical" href="https://brightlane.github.io/SkyScanner/" />
+<link rel="canonical" href="https://brightlane.github.io/SkyScanner/" />
 
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Vulture Stay Matrix: Global Inventory Sniper">
-    <meta property="og:description" content="Bypassing retail markups for the 2026 World Cup and beyond.">
-    <meta property="og:image" content="https://brightlane.github.io/SkyScanner/vulture-og.jpg">
-    <meta name="twitter:card" content="summary_large_image">
+<title>Book Hotels Worldwide | Cheap Hotel Deals & Reservations</title>
+<meta name="description" content="Search and book hotels worldwide. Compare prices, unlock hidden discounts, mobile-only deals, and reserve the best hotel rates instantly.">
 
-    <script type="application/ld+json">
-    [
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "StayFinder Matrix",
-        "operatingSystem": "All",
-        "applicationCategory": "TravelApplication",
-        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "1000000" }
-      },
-      {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Vulture Global Domination",
-        "url": "https://brightlane.github.io/SkyScanner/"
-      }
-    ]
-    </script>
+<!-- OG -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Book Hotels Worldwide & Save Instantly">
+<meta property="og:description" content="Find cheap hotels, unlock coupons, and book instantly.">
+<meta property="og:image" content="https://brightlane.github.io/SkyScanner/vulture-og.jpg">
 
-    <style>
-        :root { --gold: #ffd700; --dark: #010409; --neon: #00ff41; --v-red: #ff3131; --slate: #8b949e; }
-        * { margin:0; padding:0; box-sizing:border-box; font-family: 'Inter', -apple-system, sans-serif; }
-        body { background: var(--dark); color: white; line-height: 1.6; overflow-x: hidden; }
+<!-- Schema -->
+<script type="application/ld+json">
+[
+{
+ "@context":"https://schema.org",
+ "@type":"SoftwareApplication",
+ "name":"StayFinder Matrix",
+ "applicationCategory":"TravelApplication",
+ "aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"1000000"}
+},
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {"@type":"Question","name":"How do I find cheap hotels?",
+   "acceptedAnswer":{"@type":"Answer","text":"Search your destination to compare hotel prices and unlock hidden discounts."}},
+  {"@type":"Question","name":"Are there hotel coupons?",
+   "acceptedAnswer":{"@type":"Answer","text":"Yes, discounts are automatically applied through our booking partners."}}
+ ]
+}
+]
+</script>
 
-        /* 🌍 GLOBAL TICKER */
-        .lang-strip { background: #000; color: var(--gold); padding: 10px 0; font-size: 0.75rem; font-weight: 900; border-bottom: 1px solid var(--gold); overflow: hidden; white-space: nowrap; }
-        .ticker-inner { display: inline-block; animation: scroll 60s linear infinite; }
-        @keyframes scroll { from { transform: translateX(100%); } to { transform: translateX(-100%); } }
-
-        /* ⚓ NAVIGATION */
-        nav { position: sticky; top: 0; background: rgba(1, 4, 9, 0.95); backdrop-filter: blur(12px); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; z-index: 1000; border-bottom: 1px solid rgba(255, 215, 0, 0.1); }
-        .nav-logo { font-weight: 900; color: var(--gold); letter-spacing: 2px; font-size: 1.2rem; text-transform: uppercase; }
-        .nav-cta { background: var(--gold); color: #000; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: 900; font-size: 0.85rem; transition: 0.3s; }
-
-        /* 🏟️ HERO SECTION */
-        .hero { padding: 60px 5% 100px; text-align: center; background: radial-gradient(circle at top, #161b22 0%, var(--dark) 70%); }
-        .matrix-container { max-width: 850px; margin: 0 auto; background: rgba(255,255,255,0.02); padding: 50px 30px; border-radius: 40px; border: 1px solid rgba(255, 215, 0, 0.2); box-shadow: 0 0 50px rgba(0,0,0,0.8); position: relative; }
-        
-        h1 { font-size: clamp(2.2rem, 7vw, 4rem); font-weight: 900; color: var(--gold); line-height: 1.1; margin-bottom: 10px; letter-spacing: -2px; text-transform: uppercase; }
-        .status-line { color: var(--neon); font-size: 0.8rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 40px; }
-
-        /* 🗂️ TABS */
-        .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; flex-wrap: wrap; }
-        .tab-btn { background: rgba(255,255,255,0.05); border: 1px solid #30363d; color: #fff; padding: 10px 20px; border-radius: 50px; cursor: pointer; font-size: 0.85rem; font-weight: 600; transition: 0.3s; }
-        .tab-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(255, 215, 0, 0.05); }
-
-        /* 🔍 SEARCH & AUTOCOMPLETE */
-        .search-wrap { position: relative; max-width: 600px; margin: 0 auto; }
-        input { width: 100%; padding: 22px; background: #000; border: 2px solid #30363d; color: #fff; border-radius: 15px; font-size: 1.3rem; text-align: center; margin-bottom: 15px; outline: none; transition: 0.3s; }
-        input:focus { border-color: var(--gold); box-shadow: 0 0 25px rgba(255, 215, 0, 0.2); }
-        
-        .suggestions { position: absolute; top: 75px; left: 0; right: 0; background: #0d1117; border: 1px solid #30363d; border-radius: 10px; z-index: 5000; display: none; text-align: left; max-height: 300px; overflow-y: auto; }
-        .suggestion-item { padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #161b22; font-size: 0.9rem; }
-        .suggestion-item:hover { background: var(--gold); color: #000; }
-
-        .snatch-btn { width: 100%; padding: 22px; background: var(--gold); color: #000; font-weight: 900; font-size: 1.6rem; border: none; border-radius: 15px; cursor: pointer; text-transform: uppercase; transition: 0.3s; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3); }
-        .snatch-btn:hover { transform: translateY(-2px); filter: brightness(1.1); }
-
-        /* 💰 PRICING GRID */
-        .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 50px auto 0; }
-        .card { background: rgba(255,255,255,0.03); padding: 30px 20px; border-radius: 20px; border: 1px solid #30363d; position: relative; text-align: center; }
-        .card.popular { border: 2px solid var(--gold); transform: scale(1.03); background: rgba(255, 215, 0, 0.02); }
-        .popular-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; font-size: 0.65rem; font-weight: 900; padding: 4px 12px; border-radius: 20px; }
-
-        /* 📢 TRANSPARENCY SECTION */
-        .transparency { padding: 40px 5%; background: #0d1117; border-top: 1px solid #30363d; }
-        .transparency-content { max-width: 800px; margin: 0 auto; font-size: 0.75rem; color: var(--slate); text-align: left; }
-        .transparency-content h4 { color: var(--gold); margin-bottom: 10px; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px; }
-
-        footer { background: #000; padding: 60px 5%; border-top: 1px solid #161b22; text-align: center; color: var(--slate); }
-        .footer-links { margin-bottom: 25px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
-        .footer-links a { color: var(--gold); text-decoration: none; font-size: 0.8rem; opacity: 0.7; transition: 0.3s; }
-        .footer-links a:hover { opacity: 1; text-decoration: underline; }
-        /* 🔗 BACKLINK STYLING */
-        .network-node { color: var(--neon) !important; font-weight: 800; border: 1px solid rgba(0, 255, 65, 0.2); padding: 4px 10px; border-radius: 4px; }
-    </style>
+<style>
+:root { --gold:#ffd700; --dark:#010409; --neon:#00ff41; --slate:#8b949e; }
+body { margin:0; font-family:Arial; background:var(--dark); color:#fff; text-align:center; }
+.hero { padding:60px 20px; }
+input { width:90%; padding:18px; border-radius:10px; border:1px solid #333; background:#000; color:#fff; font-size:1.1rem; }
+button { padding:18px; width:90%; margin-top:10px; border:none; border-radius:10px; background:var(--gold); font-weight:bold; font-size:1.1rem; cursor:pointer; }
+.links a { margin:5px; display:inline-block; padding:8px 12px; background:#111; border-radius:6px; color:var(--gold); text-decoration:none; font-size:0.8rem;}
+.sticky { position:fixed; bottom:0; width:100%; background:#000; padding:10px; }
+</style>
 </head>
+
 <body>
 
-    <div class="lang-strip">
-        <div class="ticker-inner">
-            🚨 2026 WORLD CUP NODES ACTIVE: DALLAS (AT&T) • MEXICO CITY (AZTECA) • NEW YORK (METLIFE) • ATLANTA • LOS ANGELES • TORONTO • VANCOUVER • MONTERREY • GUADALAJARA • 🦅 VULTURE PROTOCOL: MILLION-NODE SYNC COMPLETE // RADICAL TRANSPARENCY PROTOCOL ENGAGED // 🦅
-        </div>
-    </div>
+<div class="hero">
 
-    <nav>
-        <div class="nav-logo" id="matrix-logo">VULTURE GLOBAL</div>
-        <a href="#matrix" class="nav-cta">RESERVE ACCESS</a>
-    </nav>
+<h1 id="dynamic-h1">Book Hotels Worldwide & Save Instantly</h1>
 
-    <main class="hero">
-        <div class="matrix-container" id="matrix">
-            <h1 id="dynamic-h1">Stay Matrix</h1>
-            <div class="status-line" id="node-id">● GLOBAL INVENTORY SNIPER: ACTIVE</div>
+<p style="color:var(--slate)">
+Search 2.5M+ hotels, compare prices, and unlock hidden discounts.
+</p>
 
-            <div class="tabs" role="tablist">
-                <button class="tab-btn active" onclick="setMode('Hotel')">Hotels</button>
-                <button class="tab-btn" onclick="setMode('Resort')">Resorts</button>
-                <button class="tab-btn" onclick="setMode('Villa')">Villas</button>
-                <button class="tab-btn" onclick="setMode('World Cup')">Stadiums</button>
-            </div>
+<input id="target" placeholder="Where do you want to stay?">
 
-            <div class="search-wrap">
-                <input type="text" id="target" placeholder="Destination or Stadium..." autocomplete="off">
-                <div id="suggestions" class="suggestions"></div>
-                <button class="snatch-btn" onclick="executeSnatch()">Initialize Snatch</button>
-            </div>
+<button onclick="go()">🔎 Search Hotels & Unlock Deals</button>
 
-            <p style="margin-top: 25px; font-size: 0.75rem; color: var(--slate);">
-                ⭐ <strong>SECURE ACCESS:</strong> Extracting <strong>Mobile-Only</strong> and <strong>Genius Tier 3</strong> rates.
-            </p>
-        </div>
+<p style="color:var(--gold); font-size:0.8rem;">
+💰 Coupons & mobile discounts applied automatically
+</p>
 
-        <div class="pricing">
-            <div class="card">
-                <h3>Standard</h3>
-                <p style="font-size: 0.75rem; margin: 10px 0; color: var(--slate);">Retail Rate Bypass</p>
-                <button onclick="executeSnatch('standard')" style="background:none; border:1px solid #444; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; width: 100%;">Select</button>
-            </div>
-            <div class="card popular">
-                <div class="popular-tag">MOST POWERFUL</div>
-                <h3 style="color:var(--gold)">VULTURE ELITE</h3>
-                <p style="font-size: 0.75rem; margin: 10px 0; color: var(--slate);">Genius T3 + Mobile Sniping</p>
-                <button onclick="executeSnatch('elite')" class="nav-cta" style="border:none; cursor:pointer; width:100%; display:block; text-align:center;">Select Elite</button>
-            </div>
-            <div class="card">
-                <h3>Enterprise</h3>
-                <p style="font-size: 0.75rem; margin: 10px 0; color: var(--slate);">Multi-Node Sync</p>
-                <button onclick="executeSnatch('ent')" style="background:none; border:1px solid #444; color:white; padding:10px 20px; border-radius:8px; cursor:pointer; width: 100%;">Select</button>
-            </div>
-        </div>
-    </main>
+<p id="urgency" style="color:var(--neon); font-size:0.75rem;"></p>
 
-    <section class="transparency">
-        <div class="transparency-content">
-            <h4>Radical Transparency Protocol</h4>
-            <p>
-                Vulture Global operates as an independent inventory sniper. When you trigger "Initialize Snatch," our matrix redirects you to primary inventory partners including Booking.com. We may receive a commission for this extraction, paid by the hotel's marketing budget—never the user. 
-                <strong>Mission:</strong> To provide direct node access to 2026 World Cup inventory by bypassing traditional retail markup layers.
-            </p>
-        </div>
-    </section>
+<!-- Popular Destinations -->
+<div class="links" style="margin-top:25px;">
+<a href="?city=new-york">New York Hotels</a>
+<a href="?city=los-angeles">Los Angeles Hotels</a>
+<a href="?city=miami">Miami Hotels</a>
+<a href="?city=paris">Paris Hotels</a>
+<a href="?city=london">London Hotels</a>
+<a href="?city=tokyo">Tokyo Hotels</a>
+</div>
 
-    <footer>
-        <div class="footer-links" id="cross-links"></div>
-        <p>&copy; 2026 VULTURE GLOBAL DOMINATION PROTOCOL. <br> Direct-to-inventory encrypted layers. Node Cluster: BrightLane-SkyScanner</p>
-    </footer>
+</div>
 
-    <script>
-        let currentMode = "Hotel";
-        const AID = "8132800";
-        let globalNodes = {};
+<!-- Sticky Mobile CTA -->
+<div class="sticky">
+<button onclick="go()">Search Hotels</button>
+</div>
 
-        const geoMap = {
-            'MX': { lang: 'es-MX', curr: 'MXN', label: 'MÉXICO MATRIX', snatch: 'INICIAR EXTRACCIÓN' },
-            'BR': { lang: 'pt-BR', curr: 'BRL', label: 'BRASIL MATRIX', snatch: 'INICIAR SNATCH' },
-            'FR': { lang: 'fr-FR', curr: 'EUR', label: 'FRANCE MATRIX', snatch: 'LANCER L\'EXTRACTION' },
-            'DE': { lang: 'de-DE', curr: 'EUR', label: 'DEUTSCHLAND MATRIX', snatch: 'EXTRAKTION STARTEN' },
-            'ES': { lang: 'es-ES', curr: 'EUR', label: 'ESPAÑA MATRIX', snatch: 'INICIAR EXTRACCIÓN' },
-            'CA': { lang: 'en-CA', curr: 'CAD', label: 'CANADA MATRIX', snatch: 'INITIALIZE SNATCH' }
-        };
+<script>
+const AID = "8132800";
 
-        async function loadNodes() {
-            try {
-                const r = await fetch('global_nodes.json');
-                if(!r.ok) throw new Error();
-                globalNodes = await r.json();
-            } catch(e) { 
-                globalNodes = {"D":["Dallas","Dubai"],"M":["Miami","Mexico City"],"N":["New York"]};
-            }
-        }
+function go(){
+ const dest = document.getElementById("target").value;
+ if(!dest) return alert("Enter a destination");
 
-        function setMode(mode) {
-            currentMode = mode;
-            document.querySelectorAll('.tab-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.innerText.includes(mode));
-            });
-        }
+ const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(dest)}&order=price`;
+ window.location.href = url;
+}
 
-        const input = document.getElementById('target');
-        const suggs = document.getElementById('suggestions');
+// urgency
+setInterval(()=>{
+ let n = Math.floor(Math.random()*40)+10;
+ document.getElementById("urgency").innerText = `🔥 ${n} people booked hotels in the last hour`;
+},3000);
 
-        input.addEventListener('input', (e) => {
-            const val = e.target.value.toUpperCase();
-            suggs.innerHTML = '';
-            if (val.length < 2) { suggs.style.display = 'none'; return; }
-            const char = val[0];
-            const list = globalNodes[char] || [];
-            const matches = list.filter(l => l.toUpperCase().includes(val)).slice(0, 6);
-            if (matches.length > 0) {
-                suggs.style.display = 'block';
-                matches.forEach(m => {
-                    const d = document.createElement('div');
-                    d.className = 'suggestion-item';
-                    d.innerText = m;
-                    d.onclick = () => { input.value = m; suggs.style.display = 'none'; };
-                    suggs.appendChild(d);
-                });
-            } else { suggs.style.display = 'none'; }
-        });
+// dynamic SEO city
+const params = new URLSearchParams(window.location.search);
+const city = params.get("city");
 
-        function executeSnatch(tier = 'main') {
-            const dest = input.value;
-            if(!dest) return alert("Select a Target Node.");
-            const country = (window.cf && window.cf.country) || navigator.language.split('-')[1] || 'US';
-            const settings = geoMap[country] || { lang: 'en-US', curr: 'USD' };
-            const utm = `&utm_source=vulture_matrix&utm_medium=${tier}`;
-            let filters = `oos%3D1%3Bprice%3D1%3Bcurr%3D${settings.curr}`;
-            if(/Android|iPhone|iPad/i.test(navigator.userAgent)) filters += "%3Bfc%3D2";
-            const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(currentMode + " in " + dest)}&lang=${settings.lang}&label=v_matrix_${tier}${utm}&nflt=${filters}&order=price`;
-            const btn = document.querySelector('.snatch-btn');
-            btn.innerText = "EXTRACTING...";
-            btn.style.background = "var(--neon)";
-            setTimeout(() => { window.location.href = url; }, 600);
-        }
+if(city){
+ const c = city.replace(/-/g," ");
+ document.getElementById("target").value = c;
+ document.getElementById("dynamic-h1").innerText = `Book Hotels in ${c}`;
+ document.title = `Book Hotels in ${c} | Cheap Deals`;
+ document.querySelector("meta[name='description']").setAttribute(
+  "content",
+  `Find and book hotels in ${c}. Compare prices and unlock deals.`
+ );
+}
+</script>
 
-        window.onload = () => {
-            loadNodes();
-            const country = (window.cf && window.cf.country) || navigator.language.split('-')[1] || 'US';
-            const geo = geoMap[country];
-            if(geo) {
-                document.getElementById('matrix-logo').innerText = geo.label;
-                document.querySelector('.snatch-btn').innerText = geo.snatch;
-            }
-
-            const params = new URLSearchParams(window.location.search);
-            const city = params.get('city');
-            if(city) {
-                const c = decodeURIComponent(city).replace(/-/g, ' ');
-                input.value = c;
-                document.getElementById('dynamic-h1').innerText = `${c.toUpperCase()} MATRIX`;
-                document.getElementById('node-id').innerText = `● NODE_${c.replace(/\s/g, '_').toUpperCase()}: ACTIVE`;
-                document.title = `${c} Stay Matrix | Vulture Global Sniper`;
-            }
-
-            // 🕸️ DYNAMIC NETWORK HUB & CITY LINKS
-            const f = document.getElementById('cross-links');
-            
-            // Sister Sites (Backlink Power)
-            const network = [
-                { name: "Booking Node", url: "https://brightlane.github.io/booking.com/" },
-                { name: "Inventory Sniper", url: "https://brightlane.github.io/booking/" },
-                { name: "Booking Master", url: "https://brightlane.github.io/BookingMaster/" }
-            ];
-
-            network.forEach(site => {
-                const a = document.createElement('a');
-                a.href = site.url;
-                a.innerText = site.name;
-                a.className = "network-node";
-                f.appendChild(a);
-            });
-
-            // Local Node Index
-            const moneyNodes = ["Dallas", "Miami", "New York", "Mexico City", "Toronto"];
-            moneyNodes.forEach(n => {
-                const a = document.createElement('a');
-                a.href = `index.html?city=${encodeURIComponent(n.toLowerCase())}`;
-                a.innerText = `${n} Matrix`;
-                f.appendChild(a);
-            });
-        };
-
-        document.addEventListener('contextmenu', e => e.preventDefault());
-    </script>
 </body>
 </html>

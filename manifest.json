@@ -1,0 +1,14 @@
+{
+  "protocol": "Vulture 10K",
+  "version": "1,000,000x",
+  "global_nodes": [
+    {"city": "London", "region": "UK", "priority": "High"},
+    {"city": "Paris", "region": "FR", "priority": "High"},
+    {"city": "Dallas", "region": "US", "priority": "World Cup 2026"},
+    {"city": "Tokyo", "region": "JP", "priority": "High"},
+    {"city": "Dubai", "region": "AE", "priority": "Luxury"},
+    {"city": "Miami", "region": "US", "priority": "High"},
+    {"city": "Bali", "region": "ID", "priority": "Villa-Focus"}
+  ],
+  "languages": ["en", "es", "fr", "de", "pt", "ja", "zh", "ko", "hi"]
+}

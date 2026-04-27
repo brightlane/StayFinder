@@ -94,6 +94,8 @@
         .footer-links { margin-bottom: 25px; display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
         .footer-links a { color: var(--gold); text-decoration: none; font-size: 0.8rem; opacity: 0.7; transition: 0.3s; }
         .footer-links a:hover { opacity: 1; text-decoration: underline; }
+        /* 🔗 BACKLINK STYLING */
+        .network-node { color: var(--neon) !important; font-weight: 800; border: 1px solid rgba(0, 255, 65, 0.2); padding: 4px 10px; border-radius: 4px; }
     </style>
 </head>
 <body>
@@ -168,14 +170,10 @@
     </footer>
 
     <script>
-        /**
-         * 🦅 THE VULTURE ENGINE (COMPLETE)
-         */
         let currentMode = "Hotel";
         const AID = "8132800";
         let globalNodes = {};
 
-        // LOCALIZATION MATRIX
         const geoMap = {
             'MX': { lang: 'es-MX', curr: 'MXN', label: 'MÉXICO MATRIX', snatch: 'INICIAR EXTRACCIÓN' },
             'BR': { lang: 'pt-BR', curr: 'BRL', label: 'BRASIL MATRIX', snatch: 'INICIAR SNATCH' },
@@ -185,14 +183,12 @@
             'CA': { lang: 'en-CA', curr: 'CAD', label: 'CANADA MATRIX', snatch: 'INITIALIZE SNATCH' }
         };
 
-        // 1. DATA LOADER (Fuel for Auto-Complete)
         async function loadNodes() {
             try {
                 const r = await fetch('global_nodes.json');
                 if(!r.ok) throw new Error();
                 globalNodes = await r.json();
             } catch(e) { 
-                console.warn("Vulture Intelligence: Offline Mode. Using local seed."); 
                 globalNodes = {"D":["Dallas","Dubai"],"M":["Miami","Mexico City"],"N":["New York"]};
             }
         }
@@ -204,7 +200,6 @@
             });
         }
 
-        // 2. AUTOCOMPLETE SNIPER
         const input = document.getElementById('target');
         const suggs = document.getElementById('suggestions');
 
@@ -212,11 +207,9 @@
             const val = e.target.value.toUpperCase();
             suggs.innerHTML = '';
             if (val.length < 2) { suggs.style.display = 'none'; return; }
-
             const char = val[0];
             const list = globalNodes[char] || [];
             const matches = list.filter(l => l.toUpperCase().includes(val)).slice(0, 6);
-
             if (matches.length > 0) {
                 suggs.style.display = 'block';
                 matches.forEach(m => {
@@ -229,35 +222,23 @@
             } else { suggs.style.display = 'none'; }
         });
 
-        // 3. THE GLOBAL REDIRECT (The Payday)
         function executeSnatch(tier = 'main') {
             const dest = input.value;
             if(!dest) return alert("Select a Target Node.");
-
-            // Detection for localization
             const country = (window.cf && window.cf.country) || navigator.language.split('-')[1] || 'US';
             const settings = geoMap[country] || { lang: 'en-US', curr: 'USD' };
-
             const utm = `&utm_source=vulture_matrix&utm_medium=${tier}`;
             let filters = `oos%3D1%3Bprice%3D1%3Bcurr%3D${settings.curr}`;
-            
-            // Force Mobile Rates if on Mobile
             if(/Android|iPhone|iPad/i.test(navigator.userAgent)) filters += "%3Bfc%3D2";
-
             const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(currentMode + " in " + dest)}&lang=${settings.lang}&label=v_matrix_${tier}${utm}&nflt=${filters}&order=price`;
-            
             const btn = document.querySelector('.snatch-btn');
             btn.innerText = "EXTRACTING...";
             btn.style.background = "var(--neon)";
-            
             setTimeout(() => { window.location.href = url; }, 600);
         }
 
-        // 4. DYNAMIC INITIALIZATION
         window.onload = () => {
             loadNodes();
-            
-            // Detect Geo for UI Rebranding
             const country = (window.cf && window.cf.country) || navigator.language.split('-')[1] || 'US';
             const geo = geoMap[country];
             if(geo) {
@@ -265,7 +246,6 @@
                 document.querySelector('.snatch-btn').innerText = geo.snatch;
             }
 
-            // Handle URL Parameters (The City Deep-Link)
             const params = new URLSearchParams(window.location.search);
             const city = params.get('city');
             if(city) {
@@ -276,9 +256,26 @@
                 document.title = `${c} Stay Matrix | Vulture Global Sniper`;
             }
 
-            // Generate Footer Money-Links
+            // 🕸️ DYNAMIC NETWORK HUB & CITY LINKS
             const f = document.getElementById('cross-links');
-            const moneyNodes = ["Dallas", "Miami", "New York", "Mexico City", "Toronto", "London", "Paris", "Tokyo"];
+            
+            // Sister Sites (Backlink Power)
+            const network = [
+                { name: "Booking Node", url: "https://brightlane.github.io/booking.com/" },
+                { name: "Inventory Sniper", url: "https://brightlane.github.io/booking/" },
+                { name: "Booking Master", url: "https://brightlane.github.io/BookingMaster/" }
+            ];
+
+            network.forEach(site => {
+                const a = document.createElement('a');
+                a.href = site.url;
+                a.innerText = site.name;
+                a.className = "network-node";
+                f.appendChild(a);
+            });
+
+            // Local Node Index
+            const moneyNodes = ["Dallas", "Miami", "New York", "Mexico City", "Toronto"];
             moneyNodes.forEach(n => {
                 const a = document.createElement('a');
                 a.href = `index.html?city=${encodeURIComponent(n.toLowerCase())}`;
@@ -287,7 +284,6 @@
             });
         };
 
-        // Anti-Scraper Shield (Basic)
         document.addEventListener('contextmenu', e => e.preventDefault());
     </script>
 </body>

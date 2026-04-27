@@ -1,0 +1,19 @@
+{
+  "booking_com": {
+    "primary_aid": "8132800",
+    "secondary_aid": "1858279",
+    "endpoints": {
+      "home": "https://www.booking.com/index.html",
+      "apartments": "https://www.booking.com/apartments/index.html",
+      "resorts": "https://www.booking.com/resorts/index.html",
+      "villas": "https://www.booking.com/villas/index.html",
+      "bed_and_breakfast": "https://www.booking.com/bed-and-breakfast/index.html",
+      "guesthouses": "https://www.booking.com/guest-house/index.html"
+    }
+  },
+  "other_partners": {
+    "skyscanner_id": "21885",
+    "skyscanner_url": "http://convert.ctypy.com/aff_c?offer_id=29465&aff_id=21885",
+    "youware_id": "007949000012007981"
+  }
+}

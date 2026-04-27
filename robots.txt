@@ -1,17 +1,36 @@
-# Vulture Engine 2026 - StayFinder Global Configuration
+# StayFinder AI Matrix - Global SEO Directive
+# Version: 2026.04.27
+# Targets: Googlebot, Bingbot, Slurp, DuckDuckBot
+
 User-agent: *
 Allow: /
-Disallow: /private/
-Disallow: /temp/
 
-# Crawl-delay helps prevent GitHub Pages from throttling your site
-Crawl-delay: 5
+# CRAWL DELAY (Optional: Remove if on high-performance hosting like GitHub Pages)
+# Crawl-delay: 1
 
-# Direct link to your dynamic sitemap
+# DIRECTORY PROTECTION
+# Prevent bots from indexing your raw affiliate logic or JSON configs
+Disallow: /config/
+Disallow: /affiliate.json
+Disallow: /logs/
+
+# SEO ENHANCEMENT: IMAGE INDEXING
+# Encourage high-quality image previews for World Cup rich snippets
+User-agent: Googlebot-Image
+Allow: /assets/
+Allow: /images/
+
+# SITEMAP DISCOVERY
+# This tells bots exactly where your 10,000+ programmatic pages live
 Sitemap: https://brightlane.github.io/StayFinder/sitemap.xml
 
-# AI Crawler Directives (Optional - Allow AI to cite your pages)
-User-agent: GPTBot
-Allow: /
-User-agent: OAI-SearchBot
-Allow: /
+# SECURITY & COMPETITOR PROTECTION
+# Block common scrapers that try to steal your keyword strategies
+User-agent: AhrefsBot
+Disallow: /
+User-agent: SemrushBot
+Disallow: /
+User-agent: MJ12bot
+Disallow: /
+User-agent: DotBot
+Disallow: /

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Stay Matrix | Priority Access 2026</title>
+    <style>
+        :root { --gold: #ffd700; --dark: #020617; --slate: #1e293b; }
+        body { font-family: 'Inter', sans-serif; background: var(--dark); color: white; margin: 0; }
+        
+        /* SEARCH HUD */
+        .nav-hud { background: var(--slate); padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--gold); sticky: top; }
+        .logo { font-weight: 900; color: var(--gold); text-decoration: none; font-size: 1.2rem; }
+        
+        .matrix-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 40px 5%; max-width: 1400px; margin: 0 auto; }
+        
+        /* HOTEL CARDS */
+        .stay-card { background: #0f172a; border: 1px solid #334155; border-radius: 16px; overflow: hidden; transition: 0.3s; position: relative; }
+        .stay-card:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .stay-img { width: 100%; height: 200px; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+        .stay-content { padding: 20px; }
+        .price-tag { color: #4ade80; font-weight: 800; font-size: 1.1rem; margin-bottom: 10px; }
+        
+        .book-btn { background: var(--gold); color: black; width: 100%; border: none; padding: 12px; border-radius: 8px; font-weight: 900; cursor: pointer; transition: 0.2s; text-transform: uppercase; }
+        .book-btn:hover { opacity: 0.9; letter-spacing: 1px; }
+
+        .filter-bar { padding: 20px 5%; display: flex; gap: 10px; overflow-x: auto; white-space: nowrap; }
+        .chip { background: #1e293b; padding: 8px 20px; border-radius: 50px; font-size: 0.8rem; border: 1px solid #334155; cursor: pointer; }
+        .chip.active { background: var(--gold); color: black; border-color: var(--gold); }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-hud">
+        <a href="index.html" class="logo">STAYFINDER MATRIX</a>
+        <div id="active-city" style="font-size: 0.8rem; opacity: 0.7;">📍 DETECTING NEAREST NODES...</div>
+    </nav>
+
+    <div class="filter-bar">
+        <div class="chip active">All Stays</div>
+        <div class="chip" onclick="filterMatrix('penthouses')">Penthouses</div>
+        <div class="chip" onclick="filterMatrix('cheap')">Budget Secrets</div>
+        <div class="chip" onclick="filterMatrix('luxury')">5-Star Elite</div>
+        <div class="chip" onclick="filterMatrix('lastminute')">Last Minute</div>
+    </div>
+
+    <main class="matrix-grid" id="matrix-output">
+        </main>
+
+    <script>
+        const AID = "8132800";
+        const urlParams = new URLSearchParams(window.location.search);
+        const city = urlParams.get('city') || "Miami";
+
+        document.getElementById('active-city').innerText = `📍 CURRENT MATRIX: ${city.toUpperCase()}`;
+
+        const categories = [
+            { title: "Elite Penthouses", icon: "🏙️", desc: "Top-floor luxury with city views.", type: "penthouse" },
+            { title: "Business Suites", icon: "💼", desc: "High-speed WiFi & central locations.", type: "hotel" },
+            { title: "Boutique Hidden Gems", icon: "💎", desc: "Unique stays with 30% secret discounts.", type: "boutique" },
+            { title: "Extended Stay Studios", icon: "🏠", desc: "Full kitchens for long-term stays.", type: "apartment" }
+        ];
+
+        function renderMatrix() {
+            const container = document.getElementById('matrix-output');
+            container.innerHTML = categories.map(cat => `
+                <div class="stay-card">
+                    <div class="stay-img">${cat.icon}</div>
+                    <div class="stay-content">
+                        <div class="price-tag">Mobile-Only Deals Active</div>
+                        <h3 style="margin-bottom:10px;">${city} ${cat.title}</h3>
+                        <p style="font-size:0.85rem; opacity:0.7; margin-bottom:20px;">${cat.desc}</p>
+                        <button class="book-btn" onclick="book('${cat.type}')">Initialize Booking</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function book(type) {
+            const search = `${type} in ${city}`;
+            // VULTURE PROTOCOL: Redirecting with high-conversion filters
+            const url = `https://www.booking.com/searchresults.html?aid=${AID}&ss=${encodeURIComponent(search)}&label=vulture_matrix_priority&nflt=oos%3D1%3Bprice%3D1&order=price`;
+            window.location.href = url;
+        }
+
+        renderMatrix();
+    </script>
+</body>
+</html>

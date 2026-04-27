@@ -1,9 +1,11 @@
- STAYFINDER AI MATRIX - ROBOTS.TXT
-# 2026 WORLD CUP VULTURE PROTOCOL
+# STAYFINDER AI MATRIX - ROBOTS.TXT
+# 2026 WORLD CUP VULTURE PROTOCOL - OPTIMIZED FOR BRIGHTLANE
 
 User-agent: *
 Allow: /
 Allow: /sitemap.xml
+# Limit crawl frequency to keep GitHub Pages performance high
+Crawl-delay: 1
 
 # BLOCK COMPETITOR SCRAPERS (Keep your niche data private from other vultures)
 User-agent: AhrefsBot
@@ -14,6 +16,11 @@ User-agent: DotBot
 Disallow: /
 User-agent: MJ12bot
 Disallow: /
+User-agent: Rogerbot
+Disallow: /
+User-agent: Exabot
+Disallow: /
 
 # SITEMAP LOCATION
-Sitemap: https://brightlane.github.io/StayFinder/sitemap.xml
+# Ensuring Google/Bing find the 1,000,000+ node map
+Sitemap: https://brightlane.github.io/SkyScanner/sitemap.xml

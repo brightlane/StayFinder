@@ -152,4 +152,27 @@
         };
     </script>
 </body>
-</html>
+</html>// Vulture Dynamic Inter-Linking Node
+const nodes = ["Paris", "London", "Tokyo", "Dallas", "New York", "Dubai"]; // Expand this to 10k+ via JSON
+function injectCrossLinks() {
+    const container = document.createElement('div');
+    container.style.cssText = "margin-top:50px; border-top:1px solid #333; padding-top:20px; font-size:0.7rem; color:#666;";
+    container.innerHTML = "<strong>NEARBY NODES:</strong> ";
+    
+    // Select 5 random nodes to avoid "Link Farm" penalties
+    const shuffled = nodes.sort(() => 0.5 - Math.random()).slice(0, 5);
+    
+    shuffled.forEach(city => {
+        const link = document.createElement('a');
+        link.href = `index.html?city=${city.toLowerCase()}`;
+        link.style.cssText = "color:var(--gold); margin-right:15px; text-decoration:none;";
+        link.innerText = `${city} Matrix`;
+        container.appendChild(link);
+    });
+    
+    document.querySelector('.matrix-container').appendChild(container);
+}
+window.onload = () => {
+    // Existing rebrand logic here...
+    injectCrossLinks();
+};

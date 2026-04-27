@@ -1,17 +1,23 @@
 import os
 
-# CONFIG
 KEYWORDS_FILE = 'keywords.txt'
 BASE_URL = 'https://brightlane.github.io/SkyScanner/'
 
+# NETWORK NODES for Cross-Linking
+SISTER_SITES = [
+    "https://brightlane.github.io/booking.com/",
+    "https://brightlane.github.io/booking/",
+    "https://brightlane.github.io/BookingMaster/"
+]
+
 TEMPLATES = [
     """<h2>2026 Inventory Report: {city}</h2>
-    <p>The global housing matrix for 2026 is tightening. In {city}, we are seeing a massive surge in direct-to-inventory requests.</p>
-    <p>Accessing {city} via the Vulture Protocol ensures you bypass the standard retail markups typically added by travel agencies.</p>""",
+    <p>The global housing matrix for 2026 is tightening. In {city}, we are seeing surge in direct-to-inventory requests.</p>
+    <p>Cross-verify this node at our <a href="{site}" style="color:#ffd700;">Secondary Matrix</a> for rate parity.</p>""",
     
     """<h2>Sniper Alert: {city} Stadium District</h2>
-    <p>Our nodes have detected a price drop in {city}. While retail platforms show 'Sold Out,' the direct inventory layer still shows availability.</p>
-    <p>By using the Vulture Matrix, travelers access mobile-only Genius Tier 3 rates for {city}.</p>"""
+    <p>Our AI detected a price drop in {city}. While retail shows 'Sold Out,' the direct layer is open.</p>
+    <p>Access the <a href="{site}" style="color:#ffd700;">Global Inventory Node</a> to bypass retail markups.</p>"""
 ]
 
 def generate_articles():
@@ -23,21 +29,25 @@ def generate_articles():
         slug = city.lower().replace(" ", "-")
         node_path = f"nodes/{slug}"
         os.makedirs(node_path, exist_ok=True)
-        content = TEMPLATES[i % len(TEMPLATES)].format(city=city)
+        
+        # Pick a sister site to backlink
+        sister_site = SISTER_SITES[i % len(SISTER_SITES)]
+        content = TEMPLATES[i % len(TEMPLATES)].format(city=city, site=sister_site)
 
         html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{city} 2026 Stay Matrix | Vulture Global</title>
+    <title>{city} 2026 Stay Matrix</title>
     <style>
-        body {{ background: #010409; color: #8b949e; font-family: sans-serif; padding: 50px; line-height: 1.6; text-align: center; }}
-        h2 {{ color: #ffd700; text-transform: uppercase; }}
-        .cta {{ display: inline-block; background: #ffd700; color: #000; padding: 15px 25px; text-decoration: none; font-weight: bold; border-radius: 5px; margin-top: 20px; }}
+        body {{ background: #010409; color: #8b949e; font-family: sans-serif; padding: 50px; text-align: center; }}
+        h2 {{ color: #ffd700; }}
+        .cta {{ display: inline-block; background: #ffd700; color: #000; padding: 15px 25px; text-decoration: none; font-weight: bold; border-radius: 5px; }}
     </style>
 </head>
 <body>
     {content}
+    <br><br>
     <a href="{BASE_URL}?city={slug}" class="cta">INITIALIZE {city.upper()} SNATCH</a>
 </body>
 </html>"""

@@ -36,4 +36,5 @@ jobs:
           git config --global user.name "Vulture-Bot"
           git config --global user.email "bot@brightlane.io"
           git add .
+          # This ensures the action doesn't fail if no new changes were found
           git diff --quiet && git diff --staged --quiet || (git commit -m "🦅 VULTURE PROTOCOL: Articles & Nodes Synced" && git push)
